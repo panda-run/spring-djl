@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: ai.djl.mxnet:mxnet-model-zoo:0.7.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/ai/djl/mxnet/mxnet-model-zoo/0.7.0-SNAPSHOT/mxnet-model-zoo-0.7.0-20200728.104444-44.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/ai/djl/mxnet/mxnet-model-zoo/0.7.0-SNAPSHOT/mxnet-model-zoo-0.7.0-20200728.104444-44-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/ai/djl/mxnet/mxnet-model-zoo/0.7.0-SNAPSHOT/mxnet-model-zoo-0.7.0-20200728.104444-44-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
