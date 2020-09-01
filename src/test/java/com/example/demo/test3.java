@@ -7,6 +7,10 @@ package com.example.demo;
  * Date: 2020/8/31 0031 22:37
  * Version:
  **/
+import ch.ethz.ssh2.Connection;
+import ch.ethz.ssh2.Session;
+import ch.ethz.ssh2.StreamGobbler;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
