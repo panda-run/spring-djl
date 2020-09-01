@@ -5,6 +5,7 @@ Fast Deep Java Library
 ## 技术选型
 
 * `AWS DJL` 亚马逊开源深度学习框架
+* `Spring Boot` Spring官方框架
 
 ## 上手指南
 * clone到本地通过maven引入该项目<br>
@@ -21,8 +22,8 @@ Fast Deep Java Library
 
 ## 感激
 感谢以下的项目提供资料学习,排名不分先后
-* [Deep Java Library](https://djl.ai)
-
+* [AWS Deep Java Library](https://djl.ai)
+* [Spring](https://spring.io/)
 ## 关于作者
 
 98年出生的一名平凡程序员，现在在上海工作，喜欢研究和分享it技术
