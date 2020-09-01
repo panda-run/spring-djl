@@ -23,6 +23,9 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+/**
+ * 命令行参数
+ */
 public class Arguments {
 
     private int epoch;

@@ -1,4 +1,4 @@
-package com.djl.examples.interfaces.benchmark;/*
+package com.djl.examples.inference.benchmark;/*
  * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance
@@ -12,8 +12,8 @@ package com.djl.examples.interfaces.benchmark;/*
  */
 
 import ai.djl.ModelException;
-import com.djl.examples.interfaces.benchmark.util.AbstractBenchmark;
-import com.djl.examples.interfaces.benchmark.util.Arguments;
+import com.djl.examples.inference.benchmark.util.AbstractBenchmark;
+import com.djl.examples.inference.benchmark.util.Arguments;
 import ai.djl.inference.Predictor;
 import ai.djl.metric.Metrics;
 import ai.djl.repository.zoo.ZooModel;

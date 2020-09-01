@@ -40,6 +40,10 @@ import java.io.IOException;
 
 import org.apache.commons.cli.ParseException;
 
+/**
+ * LSTM模型训练实例.
+ *.
+ */
 public final class TrainMnistWithLSTM {
 
     private TrainMnistWithLSTM() {}
@@ -54,23 +58,23 @@ public final class TrainMnistWithLSTM {
         try (Model model = Model.newInstance("lstm")) {
             model.setBlock(getLSTMModel());
 
-            // get training and validation dataset
+            // 获取培训和验证数据集
             RandomAccessDataset trainingSet = getDataset(Dataset.Usage.TRAIN, arguments);
             RandomAccessDataset validateSet = getDataset(Dataset.Usage.TEST, arguments);
 
-            // setup training configuration
+            // 设置培训配置
             DefaultTrainingConfig config = setupTrainingConfig(arguments);
 
             try (Trainer trainer = model.newTrainer(config)) {
                 trainer.setMetrics(new Metrics());
 
                 /*
-                 * MNIST is 28x28 grayscale image and pre processed into 28 * 28 NDArray.
-                 * 1st axis is batch axis, we can use 1 for initialization.
+                 * MNIST是28x28灰度图像，预处理成28*28ndarray.
+                 * 第一个轴是批处理轴, 可以使用1进行初始化.
                  */
                 Shape inputShape = new Shape(32, 28, 28);
 
-                // initialize trainer with proper input shape
+                //使用正确的输入形状初始化培训器
                 trainer.initialize(inputShape);
 
                 EasyTrain.fit(trainer, arguments.getEpoch(), trainingSet, validateSet);

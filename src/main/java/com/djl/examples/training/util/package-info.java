@@ -11,5 +11,5 @@
  * and limitations under the License.
  */
 
-/** Contains utilities used for the training examples. */
+/** 包含用于培训示例的实用程序. */
 package com.djl.examples.training.util;

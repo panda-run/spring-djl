@@ -12,8 +12,8 @@
  */
 
 /**
- * Contains inference benchmarking examples and code.
+ * 基准测试和代码推理包含.
  *
- * <p>See the inference benchmarking utilities in {@link ai.djl.examples.inference.benchmark.util}.
+ * <p>参见“基准测试”中的推断 {@link com.djl.examples.inference.benchmark.util}.
  */
-package com.djl.examples.interfaces.benchmark;
+package com.djl.examples.inference.benchmark;

@@ -10,7 +10,7 @@
  * OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions
  * and limitations under the License.
  */
-package com.djl.examples.interfaces.benchmark.util;
+package com.djl.examples.inference.benchmark.util;
 
 import ai.djl.engine.Engine;
 import ai.djl.modality.Classifications;
@@ -34,7 +34,7 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.OptionGroup;
 import org.apache.commons.cli.Options;
 
-/** A class represents parsed command line arguments. */
+/** 此类表示已解析的命令行参数. */
 public class Arguments {
 
     private String modelDir;
@@ -170,12 +170,12 @@ public class Arguments {
 
     public Path getModelDir() throws IOException {
         if (modelDir == null) {
-            throw new IOException("Please specify --model-dir");
+            throw new IOException("请指定 --model-dir");
         }
 
         Path path = Paths.get(modelDir);
         if (Files.notExists(path)) {
-            throw new FileNotFoundException("model directory not found: " + modelDir);
+            throw new FileNotFoundException("找不到模型目录: " + modelDir);
         }
         return path;
     }
@@ -200,13 +200,13 @@ public class Arguments {
         if (imageFile == null) {
             Path path = Paths.get("src/test/resources/kitten.jpg");
             if (Files.notExists(path)) {
-                throw new FileNotFoundException("Missing --image parameter.");
+                throw new FileNotFoundException("不存在的 --图像参数.");
             }
             return path;
         }
         Path path = Paths.get(imageFile);
         if (Files.notExists(path)) {
-            throw new FileNotFoundException("image file not found: " + imageFile);
+            throw new FileNotFoundException("找不到图像文件: " + imageFile);
         }
         return path;
     }
@@ -253,7 +253,7 @@ public class Arguments {
             // Create empty NDArray from shape for now
             return null;
         }
-        throw new IllegalArgumentException("Unsupported input class: " + klass);
+        throw new IllegalArgumentException("不支持的输入类: " + klass);
     }
 
     public Shape getInputShape() {

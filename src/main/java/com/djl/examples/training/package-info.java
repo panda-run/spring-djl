@@ -11,5 +11,5 @@
  * and limitations under the License.
  */
 
-/** Contains examples of training models. */
+/** 包含训练模型的示例. */
 package com.djl.examples.training;

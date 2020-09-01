@@ -11,4 +11,5 @@
  * and limitations under the License.
  */
 
-/** Contains examples of performing inference using pre-trained models. */
+/** 包含使用预先训练的模型执行推理的示例. */
+package com.djl.examples.inference;

@@ -11,5 +11,5 @@
  * and limitations under the License.
  */
 
-/** Contains examples of transfer learning. */
+/** 包含迁移学习的示例. */
 package com.djl.examples.training.transferlearning;

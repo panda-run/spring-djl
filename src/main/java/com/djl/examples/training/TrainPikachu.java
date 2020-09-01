@@ -58,11 +58,11 @@ import java.util.List;
 import org.apache.commons.cli.ParseException;
 
 /**
- * An example of training a simple Single Shot Detection (SSD) model.
+ * 一个简单的单发检测（SSD）模型的训练实例 皮卡丘训练.
  *
- * <p>See this <a
- * href="https://github.com/awslabs/djl/blob/master/examples/docs/train_pikachu_ssd.md">doc</a> for
- * information about this example.
+ * <p>详情 如下 <a
+ * href="https://github.com/awslabs/djl/blob/master/examples/docs/train_pikachu_ssd.md">文档</a>
+ * 有关运行此示例的信息.
  */
 public final class TrainPikachu {
 
@@ -100,10 +100,10 @@ public final class TrainPikachu {
             throws IOException, MalformedModelException, TranslateException {
         try (Model model = Model.newInstance("pikachu-ssd")) {
             float detectionThreshold = 0.6f;
-            // load parameters back to original training block
+            // 将参数加载回原始训练块
             model.setBlock(getSsdTrainBlock());
             model.load(Paths.get(outputDir));
-            // append prediction logic at end of training block with parameter loaded
+            // 在加载参数的训练块末尾追加预测逻辑
             Block ssdTrain = model.getBlock();
             model.setBlock(getSsdPredictBlock(ssdTrain));
             Path imagePath = Paths.get(imageFile);
@@ -119,7 +119,7 @@ public final class TrainPikachu {
                 image.drawBoundingBoxes(detectedObjects);
                 Path out = Paths.get(outputDir).resolve("pikachu_output.png");
                 image.save(Files.newOutputStream(out), "png");
-                // return number of pikachu detected
+                // 检测到的pikachu返回数字（有几个皮卡丘）
                 return detectedObjects.getNumberOfObjects();
             }
         }
@@ -189,7 +189,7 @@ public final class TrainPikachu {
     }
 
     public static Block getSsdPredictBlock(Block ssdTrain) {
-        // add prediction process
+        // 添加预测过程
         SequentialBlock ssdPredict = new SequentialBlock();
         ssdPredict.add(ssdTrain);
         ssdPredict.add(

@@ -11,7 +11,7 @@
  * and limitations under the License.
  */
 
-package com.djl.examples.interfaces;
+package com.djl.examples.inference;
 
 import ai.djl.Application;
 import ai.djl.ModelException;
@@ -27,16 +27,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * An example of inference using BertQA.
+ * 用BertQA进行推理的一个例子.
  *
- * <p>See:
+ * <p>详情 如下:
  *
  * <ul>
  *   <li>the <a href="https://github.com/awslabs/djl/blob/master/jupyter/BERTQA.ipynb">jupyter
- *       demo</a> with more information about BERT.
+ *       demo</a> 关于Bert的更多信息.
  *   <li>the <a
- *       href="https://github.com/awslabs/djl/blob/master/examples/docs/BERT_question_and_answer.md">docs</a>
- *       for information about running this example.
+ *       href="https://github.com/awslabs/djl/blob/master/examples/docs/BERT_question_and_answer.md">文档</a>
+ *       有关运行此示例的信息.
  * </ul>
  */
 public final class BertQaInference {
@@ -47,7 +47,7 @@ public final class BertQaInference {
 
     public static void main(String[] args) throws IOException, TranslateException, ModelException {
         String answer = BertQaInference.predict();
-        logger.info("Answer: {}", answer);
+        logger.info("回答: {}", answer);
     }
 
     public static String predict() throws IOException, TranslateException, ModelException {
@@ -58,8 +58,8 @@ public final class BertQaInference {
                         + "It ceased operations after its Japanese distributor folded.";
 
         QAInput input = new QAInput(question, paragraph);
-        logger.info("Paragraph: {}", input.getParagraph());
-        logger.info("Question: {}", input.getQuestion());
+        logger.info("段落: {}", input.getParagraph());
+        logger.info("问题: {}", input.getQuestion());
 
         Criteria<QAInput, String> criteria =
                 Criteria.builder()

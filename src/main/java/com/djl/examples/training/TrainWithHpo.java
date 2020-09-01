@@ -80,7 +80,7 @@ public final class TrainWithHpo {
             float loss = trained.getValue().getValidateLoss();
             hpOptimizer.update(hpVals, loss);
             logger.info(
-                    "--------- hp test {}/{} - Loss {} - {}", i, hyperparameterTests, loss, hpVals);
+                    "--------- hp 测试 {}/{} - 丢失 {} - {}", i, hyperparameterTests, loss, hpVals);
         }
 
         HpSet bestHpVals = hpOptimizer.getBest().getKey();
@@ -89,7 +89,7 @@ public final class TrainWithHpo {
         TrainingResult result = trained.getValue();
         float loss = result.getValidateLoss();
         try (Model model = trained.getKey()) {
-            logger.info("--------- FINAL_HP - Loss {} - {}", loss, bestHpVals);
+            logger.info("--------- FINAL_HP - 丢失 {} - {}", loss, bestHpVals);
 
             model.setProperty("Epoch", String.valueOf(result.getEpoch()));
             model.setProperty(
@@ -105,26 +105,26 @@ public final class TrainWithHpo {
             HpSet hpVals,
             RandomAccessDataset trainingSet,
             RandomAccessDataset validateSet) throws Exception, TranslateException {
-        // Construct neural network
+        // 构造神经网络
         int[] hidden = new int[(Integer) hpVals.getHParam("hiddenLayersCount").random()];
         Arrays.fill(hidden, (Integer) hpVals.getHParam("hiddenLayersSize").random());
         Block block = new Mlp(Mnist.IMAGE_HEIGHT * Mnist.IMAGE_WIDTH, Mnist.NUM_CLASSES, hidden);
         Model model = Model.newInstance("mlp");
         model.setBlock(block);
 
-        // setup training configuration
+        // 设置培训配置
         DefaultTrainingConfig config = setupTrainingConfig(arguments);
 
         try (Trainer trainer = model.newTrainer(config)) {
             trainer.setMetrics(new Metrics());
 
             /*
-             * MNIST is 28x28 grayscale image and pre processed into 28 * 28 NDArray.
-             * 1st axis is batch axis, we can use 1 for initialization.
+             * MNIST是28x28灰度图像，预处理成28*28ndarray.
+             * 第一个轴是批处理轴, 可以使用1进行初始化.
              */
             Shape inputShape = new Shape(1, Mnist.IMAGE_HEIGHT * Mnist.IMAGE_WIDTH);
 
-            // initialize trainer with proper input shape
+            // 使用正确的输入形状初始化培训器
             trainer.initialize(inputShape);
 
             EasyTrain.fit(trainer, arguments.getEpoch(), trainingSet, validateSet);

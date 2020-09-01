@@ -10,7 +10,7 @@
  * OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions
  * and limitations under the License.
  */
-package com.djl.examples.interfaces;
+package com.djl.examples.inference;
 
 import ai.djl.Application;
 import ai.djl.MalformedModelException;
@@ -36,11 +36,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * An example of inference using a pose estimation model.
+ * 利用位姿估计模型进行推理的一个例子.
  *
- * <p>See this <a
- * href="https://github.com/awslabs/djl/blob/master/examples/docs/pose_estimation.md">doc</a> for
- * information about this example.
+ * <p>详情 如下 <a
+ * href="https://github.com/awslabs/djl/blob/master/examples/docs/pose_estimation.md">文档</a>
+ * 有关此示例的信息.
  */
 public final class PoseEstimation {
 
@@ -60,7 +60,7 @@ public final class PoseEstimation {
         Image person = predictPersonInImage(img);
 
         if (person == null) {
-            logger.warn("No person found in image.");
+            logger.warn("在图像中找不到人.");
             return null;
         }
 
@@ -134,8 +134,8 @@ public final class PoseEstimation {
         img.drawJoints(joints);
 
         Path imagePath = outputDir.resolve("joints.png");
-        // Must use png format because you can't save as jpg with an alpha channel
+        // 必须使用png格式，因为不能用alpha通道保存为jpg
         img.save(Files.newOutputStream(imagePath), "png");
-        logger.info("Pose image has been saved in: {}", imagePath);
+        logger.info("姿势图像已保存在: {}", imagePath);
     }
 }

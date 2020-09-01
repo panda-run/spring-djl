@@ -37,11 +37,11 @@ import java.io.IOException;
 import org.apache.commons.cli.ParseException;
 
 /**
- * An example of training an image classification (MNIST) model.
+ * 图像分类（MNIST）模型训练实例.
  *
- * <p>See this <a
- * href="https://github.com/awslabs/djl/blob/master/examples/docs/train_mnist_mlp.md">doc</a> for
- * information about this example.
+ * <p>详情 如下 <a
+ * href="https://github.com/awslabs/djl/blob/master/examples/docs/train_mnist_mlp.md">文档</a>
+ * 有关运行此示例的信息.
  */
 public final class TrainMnist {
 
@@ -54,7 +54,7 @@ public final class TrainMnist {
     public static TrainingResult runExample(String[] args) throws IOException, ParseException, TranslateException {
         Arguments arguments = Arguments.parseArgs(args);
 
-        // Construct neural network
+        // 构造神经网络
         Block block =
                 new Mlp(
                         Mnist.IMAGE_HEIGHT * Mnist.IMAGE_WIDTH,
@@ -64,23 +64,23 @@ public final class TrainMnist {
         try (Model model = Model.newInstance("mlp")) {
             model.setBlock(block);
 
-            // get training and validation dataset
+            // 获取培训和验证数据集
             RandomAccessDataset trainingSet = getDataset(Dataset.Usage.TRAIN, arguments);
             RandomAccessDataset validateSet = getDataset(Dataset.Usage.TEST, arguments);
 
-            // setup training configuration
+            // 设置培训配置
             DefaultTrainingConfig config = setupTrainingConfig(arguments);
 
             try (Trainer trainer = model.newTrainer(config)) {
                 trainer.setMetrics(new Metrics());
 
                 /*
-                 * MNIST is 28x28 grayscale image and pre processed into 28 * 28 NDArray.
-                 * 1st axis is batch axis, we can use 1 for initialization.
+                 * MNIST是28x28灰度图像，预处理成28*28ndarray.
+                 * 第一个轴是批处理轴, 可以使用1进行初始化.
                  */
                 Shape inputShape = new Shape(1, Mnist.IMAGE_HEIGHT * Mnist.IMAGE_WIDTH);
 
-                // initialize trainer with proper input shape
+                // 使用正确的输入形状初始化培训器
                 trainer.initialize(inputShape);
 
                 EasyTrain.fit(trainer, arguments.getEpoch(), trainingSet, validateSet);

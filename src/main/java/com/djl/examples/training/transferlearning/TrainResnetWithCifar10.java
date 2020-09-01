@@ -60,11 +60,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * An example of training an image classification (ResNet for Cifar10) model.
+ * 图像分类（ResNet for Cifar10）模型训练实例.
  *
- * <p>See this <a
- * href="https://github.com/awslabs/djl/blob/master/examples/docs/train_cifar10_resnet.md">doc</a>
- * for information about this example.
+ * <p>详情 如下 <a
+ * href="https://github.com/awslabs/djl/blob/master/examples/docs/train_cifar10_resnet.md">文档</a>
+ * 有关运行此示例的信息.
  */
 public final class TrainResnetWithCifar10 {
 
@@ -82,23 +82,23 @@ public final class TrainResnetWithCifar10 {
         Arguments arguments = Arguments.parseArgs(args);
 
         try (Model model = getModel(arguments)) {
-            // get training dataset
+            // 获取训练数据集
             RandomAccessDataset trainDataset = getDataset(Dataset.Usage.TRAIN, arguments);
             RandomAccessDataset validationDataset = getDataset(Dataset.Usage.TEST, arguments);
 
-            // setup training configuration
+            // 设置培训配置
             DefaultTrainingConfig config = setupTrainingConfig(arguments);
 
             try (Trainer trainer = model.newTrainer(config)) {
                 trainer.setMetrics(new Metrics());
 
                 /*
-                 * CIFAR10 is 32x32 image and pre processed into NCHW NDArray.
-                 * 1st axis is batch axis, we can use 1 for initialization.
+                 * CIFAR10是32x32图像，并预处理为NCHW nArray.
+                 * 轴1可用于第一批初始化.
                  */
                 Shape inputShape = new Shape(1, 3, 32, 32);
 
-                // initialize trainer with proper input shape
+                // 使用正确的输入形状初始化培训器
                 trainer.initialize(inputShape);
                 EasyTrain.fit(trainer, arguments.getEpoch(), trainDataset, validationDataset);
 
@@ -113,7 +113,7 @@ public final class TrainResnetWithCifar10 {
                 model.save(modelPath, "resnetv1");
 
                 Classifications classifications = testSaveParameters(model.getBlock(), modelPath);
-                logger.info("Predict result: {}", classifications.topK(3));
+                logger.info("预测结果: {}", classifications.topK(3));
                 return result;
             }
         }
@@ -144,8 +144,8 @@ public final class TrainResnetWithCifar10 {
             SymbolBlock block = (SymbolBlock) model.getBlock();
             block.removeLastBlock();
             newBlock.add(block);
-            // the original model don't include the flatten
-            // so apply the flatten here
+            // 原始模型不包括展平
+            // 所以在这里应用压平
             newBlock.add(Blocks.batchFlattenBlock());
             model.setBlock(newBlock);
             if (!preTrained) {
@@ -153,7 +153,7 @@ public final class TrainResnetWithCifar10 {
             }
             return model;
         }
-        // imperative resnet50
+        // 命令 resnet50
         if (preTrained) {
             builder.optGroupId(BasicModelZoo.GROUP_ID);
             if (options == null) {
@@ -163,10 +163,10 @@ public final class TrainResnetWithCifar10 {
             } else {
                 builder.optFilters(options);
             }
-            // load pre-trained imperative ResNet50 from DJL model zoo
+            // 从DJL model zoo加载预先培训的命令ResNet50
             return ModelZoo.loadModel(builder.build());
         } else {
-            // construct new ResNet50 without pre-trained weights
+            // 构建新的ResNet50，无需预先训练权重
             Model model = Model.newInstance("resnetv1");
             Block resNet50 =
                     ResNetV1.builder()

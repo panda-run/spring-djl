@@ -10,11 +10,11 @@
  * OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions
  * and limitations under the License.
  */
-package com.djl.examples.interfaces;
+package com.djl.examples.inference;
 
 import ai.djl.Application;
 import ai.djl.ModelException;
-import com.djl.examples.interfaces.benchmark.util.Arguments;
+import com.djl.examples.inference.benchmark.util.Arguments;
 import ai.djl.inference.Predictor;
 import ai.djl.modality.Classifications;
 import ai.djl.modality.cv.Image;
@@ -77,9 +77,9 @@ public final class LoadModel {
                         .optFilters(arguments.getCriteria())
                         .optProgress(new ProgressBar());
         if (artifactId.startsWith("ai.djl.localmodelzoo")) {
-            // load model from local folder
-            // since local pre-trained model doesn't have a translator defined,
-            // we need to supply a translator manually.
+            // 从本地文件夹加载模型
+            // 因为本地预训练模型没有定义转换器,
+            // 所以需要手动提供一个翻译.
             builder.optTranslator(getTranslator());
         }
 
@@ -91,8 +91,8 @@ public final class LoadModel {
     }
 
     private static Translator<Image, Classifications> getTranslator() {
-        // This ImageClassificationTranslator is just a default, you need to
-        // make proper changes to match your local model's behavior.
+        // 此ImageClassificationTranslator只是默认值,
+        // 这里需要进行适当的更改以匹配本地模型的行为.
         return ImageClassificationTranslator.builder()
                 .addTransform(new CenterCrop())
                 .addTransform(new Resize(224, 224))

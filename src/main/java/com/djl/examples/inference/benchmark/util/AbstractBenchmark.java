@@ -10,12 +10,12 @@
  * OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions
  * and limitations under the License.
  */
-package com.djl.examples.interfaces.benchmark.util;
+package com.djl.examples.inference.benchmark.util;
 
 import ai.djl.Device;
 import ai.djl.ModelException;
 import ai.djl.engine.Engine;
-import com.djl.examples.interfaces.benchmark.MultithreadedBenchmark;
+import com.djl.examples.inference.benchmark.MultithreadedBenchmark;
 import ai.djl.metric.Metrics;
 import ai.djl.ndarray.NDList;
 import ai.djl.ndarray.types.Shape;
@@ -38,7 +38,7 @@ import org.apache.commons.cli.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/** Abstract class that encapsulate command line options for example project. */
+/** 抽象类，用于封装示例项目的命令行选项 */
 public abstract class AbstractBenchmark {
 
     private static final Logger logger = LoggerFactory.getLogger(AbstractBenchmark.class);
@@ -48,48 +48,48 @@ public abstract class AbstractBenchmark {
     protected ProgressBar progressBar;
 
     /**
-     * Abstract predict method that must be implemented by sub class.
+     * 必须由子类实现的抽象预测方法.
      *
-     * @param arguments command line arguments
+     * @param arguments 命令行参数
      * @param metrics {@link Metrics} to collect statistic information
-     * @param iteration number of prediction iteration to run
-     * @return prediction result
-     * @throws IOException if io error occurs when loading model.
-     * @throws ModelException if specified model not found or there is a parameter error
-     * @throws TranslateException if error occurs when processing input or output
-     * @throws ClassNotFoundException if input or output class cannot be loaded
+     * @param iteration 要运行的预测迭代数
+     * @return 预测结果
+     * @throws IOException 如果加载模型时发生io错误.
+     * @throws ModelException 如果找不到指定的模型或存在参数错误
+     * @throws TranslateException 如果在处理输入或输出时发生错误
+     * @throws ClassNotFoundException 如果无法加载输入或输出类
      */
     protected abstract Object predict(Arguments arguments, Metrics metrics, int iteration)
             throws IOException, ModelException, TranslateException, ClassNotFoundException;
 
     /**
-     * Returns command line options.
+     * 返回命令行选项.
      *
-     * <p>Child class can override this method and return different command line options.
+     * <p>子类可以重写此方法并返回不同的命令行选项.
      *
-     * @return command line options
+     * @return 命令行选项
      */
     protected Options getOptions() {
         return Arguments.getOptions();
     }
 
     /**
-     * Parse command line into arguments.
+     * 将命令行解析为参数.
      *
-     * <p>Child class can override this method and return extension of {@link Arguments}.
+     * <p>子类可以重写此方法并返回扩展名 of {@link Arguments}.
      *
-     * @param cmd list of arguments parsed against a {@link Options} descriptor
-     * @return parsed arguments
+     * @param cmd 根据{@link Options}描述符分析的参数列表
+     * @return 解析的参数
      */
     protected Arguments parseArguments(CommandLine cmd) {
         return new Arguments(cmd);
     }
 
     /**
-     * Execute example code.
+     * 执行示例代码.
      *
-     * @param args input raw arguments
-     * @return if example execution complete successfully
+     * @param args 输入原始参数
+     * @return 示例执行成功完成
      */
     public final boolean runBenchmark(String[] args) {
         Options options = getOptions();
@@ -103,17 +103,17 @@ public abstract class AbstractBenchmark {
             long loaded = System.nanoTime();
             logger.info(
                     String.format(
-                            "Load library %s in %.3f ms.", version, (loaded - init) / 1_000_000f));
+                            "加载库%s(以%.3f毫秒为单位).", version, (loaded - init) / 1_000_000f));
             Duration duration = Duration.ofMinutes(arguments.getDuration());
             if (arguments.getDuration() != 0) {
                 logger.info(
-                        "Running {} on: {}, duration: {} minutes.",
+                        "正在运行 {} 时间: {}, 持续时间: {} 分钟.",
                         getClass().getSimpleName(),
                         Device.defaultDevice(),
                         duration.toMinutes());
             } else {
                 logger.info(
-                        "Running {} on: {}.", getClass().getSimpleName(), Device.defaultDevice());
+                        "正在运行 {} 时间: {}.", getClass().getSimpleName(), Device.defaultDevice());
             }
             int numOfThreads = arguments.getThreads();
             int iteration = arguments.getIteration();
@@ -131,16 +131,16 @@ public abstract class AbstractBenchmark {
                 }
                 long totalTime = System.currentTimeMillis() - begin;
 
-                logger.info("Inference result: {}", lastResult);
+                logger.info("推理结果: {}", lastResult);
                 String throughput = String.format("%.2f", iteration * 1000d / totalTime);
                 logger.info(
-                        "Throughput: {}, {} iteration / {} ms.", throughput, iteration, totalTime);
+                        "吞吐量: {}, {} 迭代 / {} ms.", throughput, iteration, totalTime);
 
                 if (metrics.hasMetric("LoadModel")) {
                     long loadModelTime =
                             metrics.getMetric("LoadModel").get(0).getValue().longValue();
                     logger.info(
-                            "Model loading time: {} ms.",
+                            "模型加载时间: {} ms.",
                             String.format("%.3f", loadModelTime / 1_000_000f));
                 }
 
@@ -177,19 +177,19 @@ public abstract class AbstractBenchmark {
                                     / 1_000_000f;
                     logger.info(
                             String.format(
-                                    "total P50: %.3f ms, P90: %.3f ms, P99: %.3f ms",
+                                    "总计 P50: %.3f ms, P90: %.3f ms, P99: %.3f ms",
                                     totalP50, totalP90, totalP99));
                     logger.info(
                             String.format(
-                                    "inference P50: %.3f ms, P90: %.3f ms, P99: %.3f ms",
+                                    "推论 P50: %.3f ms, P90: %.3f ms, P99: %.3f ms",
                                     p50, p90, p99));
                     logger.info(
                             String.format(
-                                    "preprocess P50: %.3f ms, P90: %.3f ms, P99: %.3f ms",
+                                    "预处理 P50: %.3f ms, P90: %.3f ms, P99: %.3f ms",
                                     preP50, preP90, preP99));
                     logger.info(
                             String.format(
-                                    "postprocess P50: %.3f ms, P90: %.3f ms, P99: %.3f ms",
+                                    "后置处理 P50: %.3f ms, P90: %.3f ms, P99: %.3f ms",
                                     postP50, postP90, postP99));
 
                     if (Boolean.getBoolean("collect-memory")) {
@@ -198,8 +198,8 @@ public abstract class AbstractBenchmark {
                         float cpu = metrics.percentile("cpu", 90).getValue().longValue();
                         float rss = metrics.percentile("rss", 90).getValue().longValue();
 
-                        logger.info(String.format("heap P90: %.3f", heap));
-                        logger.info(String.format("nonHeap P90: %.3f", nonHeap));
+                        logger.info(String.format("堆 P90: %.3f", heap));
+                        logger.info(String.format("非堆 P90: %.3f", nonHeap));
                         logger.info(String.format("cpu P90: %.3f", cpu));
                         logger.info(String.format("rss P90: %.3f", rss));
                     }
@@ -208,7 +208,7 @@ public abstract class AbstractBenchmark {
                 long delta = System.currentTimeMillis() - begin;
                 duration = duration.minus(Duration.ofMillis(delta));
                 if (!duration.isNegative()) {
-                    logger.info(duration.toMinutes() + " minutes left");
+                    logger.info(duration.toMinutes() + " 还剩分钟");
                 }
             }
             return true;
@@ -218,17 +218,17 @@ public abstract class AbstractBenchmark {
             formatter.setWidth(120);
             formatter.printHelp(e.getMessage(), options);
         } catch (Throwable t) {
-            logger.error("Unexpected error", t);
+            logger.error("意外错误", t);
         }
         return false;
     }
 
     /**
-     * Returns last predict result.
+     * 返回上一个预测结果.
      *
-     * <p>This method is used for unit test only.
+     * <p>此方法仅用于单元测试.
      *
-     * @return last predict result
+     * @return 上次预测结果
      */
     public Object getPredictResult() {
         return lastResult;
@@ -277,7 +277,7 @@ public abstract class AbstractBenchmark {
         ZooModel<?, ?> model = ModelZoo.loadModel(builder.build());
         long delta = System.nanoTime() - begin;
         logger.info(
-                "Model {} loaded in: {} ms.",
+                "模型 {} 加载 in: {} ms.",
                 model.getName(),
                 String.format("%.3f", delta / 1_000_000f));
         metrics.addMetric("LoadModel", delta);

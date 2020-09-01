@@ -10,11 +10,11 @@
  * OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions
  * and limitations under the License.
  */
-package com.djl.examples.interfaces.benchmark;
+package com.djl.examples.inference.benchmark;
 
 import ai.djl.ModelException;
-import com.djl.examples.interfaces.benchmark.util.AbstractBenchmark;
-import com.djl.examples.interfaces.benchmark.util.Arguments;
+import com.djl.examples.inference.benchmark.util.AbstractBenchmark;
+import com.djl.examples.inference.benchmark.util.Arguments;
 import ai.djl.inference.Predictor;
 import ai.djl.metric.Metrics;
 import ai.djl.repository.zoo.ZooModel;
@@ -53,7 +53,7 @@ public class MultithreadedBenchmark extends AbstractBenchmark {
 
         int numOfThreads = arguments.getThreads();
         AtomicInteger counter = new AtomicInteger(iteration);
-        logger.info("Multithreaded inference with {} threads.", numOfThreads);
+        logger.info("多线程推理 {} .", numOfThreads);
 
         List<PredictorCallable> callables = new ArrayList<>(numOfThreads);
         for (int i = 0; i < numOfThreads; ++i) {
@@ -80,7 +80,7 @@ public class MultithreadedBenchmark extends AbstractBenchmark {
             executorService.shutdown();
         }
         if (successThreads != numOfThreads) {
-            logger.error("Only {}/{} threads finished.", successThreads, numOfThreads);
+            logger.error("只有 {}/{} 线程已完成.", successThreads, numOfThreads);
         }
 
         return classification;
@@ -134,12 +134,12 @@ public class MultithreadedBenchmark extends AbstractBenchmark {
                     MemoryTrainingListener.collectMemoryInfo(metrics);
                 }
                 int processed = total - remaining;
-                logger.trace("Worker-{}: {} iteration finished.", workerId, ++count);
+                logger.trace("Worker-{}: {} 迭代已完成.", workerId, ++count);
                 if (processed % steps == 0) {
-                    logger.info("Completed {} requests", processed);
+                    logger.info("完整的 {} 请求", processed);
                 }
             }
-            logger.debug("Worker-{}: finished.", workerId);
+            logger.debug("Worker-{}: 完成.", workerId);
             return result;
         }
     }

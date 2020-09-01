@@ -40,11 +40,11 @@ import java.io.IOException;
 import org.apache.commons.cli.ParseException;
 
 /**
- * An example of training a CAPTCHA solving model.
+ * 验证码求解模型训练实例.
  *
- * <p>See this <a
- * href="https://github.com/awslabs/djl/blob/master/examples/docs/train_captcha.md">doc</a> for
- * information about this example.
+ * <p>详情 如下 <a
+ * href="https://github.com/awslabs/djl/blob/master/examples/docs/train_captcha.md">文档</a>
+ * 有关运行此示例的信息.
  */
 public final class TrainCaptcha {
 
@@ -60,11 +60,11 @@ public final class TrainCaptcha {
         try (Model model = Model.newInstance("captcha")) {
             model.setBlock(getBlock());
 
-            // get training and validation dataset
+            // 获取培训和验证数据集
             RandomAccessDataset trainingSet = getDataset(Usage.TRAIN, arguments);
             RandomAccessDataset validateSet = getDataset(Usage.VALIDATION, arguments);
 
-            // setup training configuration
+            // 设置培训配置
             DefaultTrainingConfig config = setupTrainingConfig(arguments);
 
             try (Trainer trainer = model.newTrainer(config)) {
@@ -73,7 +73,7 @@ public final class TrainCaptcha {
                 Shape inputShape =
                         new Shape(1, 1, CaptchaDataset.IMAGE_HEIGHT, CaptchaDataset.IMAGE_WIDTH);
 
-                // initialize trainer with proper input shape
+                // 使用正确的输入形状初始化培训器
                 trainer.initialize(inputShape);
 
                 EasyTrain.fit(trainer, arguments.getEpoch(), trainingSet, validateSet);

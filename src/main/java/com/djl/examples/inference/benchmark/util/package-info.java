@@ -12,7 +12,7 @@
  */
 
 /**
- * Contains utilities used for the inference benchmarking examples within the package {@link
- * ai.djl.examples.inference.benchmark}.
+ * 包含用于包内推理基准测试示例的实用程序 {@link
+ * com.djl.examples.inference.benchmark}.
  */
-package com.djl.examples.interfaces.benchmark.util;
+package com.djl.examples.inference.benchmark.util;

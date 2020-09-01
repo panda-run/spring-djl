@@ -10,7 +10,7 @@
  * OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions
  * and limitations under the License.
  */
-package com.djl.examples.interfaces;
+package com.djl.examples.inference;
 
 import ai.djl.Model;
 import ai.djl.ModelException;
@@ -33,11 +33,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * An example of inference using an image classification model.
+ * 图像分类模型推理实例.
  *
- * <p>See this <a
- * href="https://github.com/awslabs/djl/blob/master/examples/docs/image_classification.md">doc</a>
- * for information about this example.
+ * <p>详情 如下 <a
+ * href="https://github.com/awslabs/djl/blob/master/examples/docs/image_classification.md">文档</a>
+ * 有关此示例的信息.
  */
 public final class ImageClassification {
 
@@ -58,7 +58,7 @@ public final class ImageClassification {
         try (Model model = Model.newInstance(modelName)) {
             model.setBlock(new Mlp(28 * 28, 10, new int[] {128, 64}));
 
-            // Assume you have run TrainMnist.java example, and saved model in build/model folder.
+            //如果你已经跑了TrainMnist.java示例，并将模型保存在build/model文件夹中.
             Path modelDir = Paths.get("build/model");
             model.load(modelDir);
 

@@ -10,7 +10,7 @@
  * OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions
  * and limitations under the License.
  */
-package com.djl.examples.interfaces;
+package com.djl.examples.inference;
 
 import ai.djl.Application;
 import ai.djl.ModelException;
@@ -31,11 +31,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * An example of inference using an object detection model.
+ * 使用对象检测模型进行推理的一个例子.
  *
- * <p>See this <a
- * href="https://github.com/awslabs/djl/blob/master/examples/docs/object_detection.md">doc</a> for
- * information about this example.
+ * <p>详情 如下 <a
+ * href="https://github.com/awslabs/djl/blob/master/examples/docs/object_detection.md">文档</a>
+ * 有关此示例的信息.
  */
 public final class ObjectDetection {
 
@@ -74,13 +74,13 @@ public final class ObjectDetection {
         Path outputDir = Paths.get("build/output");
         Files.createDirectories(outputDir);
 
-        // Make image copy with alpha channel because original image was jpg
+        // 使用alpha通道复制图像，因为原始图像是jpg
         Image newImage = img.duplicate(Image.Type.TYPE_INT_ARGB);
         newImage.drawBoundingBoxes(detection);
 
         Path imagePath = outputDir.resolve("detected-dog_bike_car.png");
-        // OpenJDK can't save jpg with alpha channel
+        // OpenJDK不能用alpha通道保存jpg
         newImage.save(Files.newOutputStream(imagePath), "png");
-        logger.info("Detected objects image has been saved in: {}", imagePath);
+        logger.info("检测到的对象图像已保存在: {}", imagePath);
     }
 }

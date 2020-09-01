@@ -10,7 +10,7 @@
  * OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions
  * and limitations under the License.
  */
-package com.djl.examples.interfaces;
+package com.djl.examples.inference;
 
 import ai.djl.Application;
 import ai.djl.ModelException;
@@ -30,11 +30,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * An example of inference using an action recognition model.
+ * 一个使用动作识别模型进行推理的例子.
  *
- * <p>See this <a
- * href="https://github.com/awslabs/djl/blob/master/examples/docs/action_recognition.md">doc</a> for
- * information about this example.
+ * <p>详情 如下 <a
+ * href="https://github.com/awslabs/djl/blob/master/examples/docs/action_recognition.md">文档</a>
+ * 有关此示例的信息.
  */
 public final class ActionRecognition {
 
