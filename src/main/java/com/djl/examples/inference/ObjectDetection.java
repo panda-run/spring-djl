@@ -49,7 +49,7 @@ public final class ObjectDetection {
     }
 
     public static DetectedObjects predict() throws IOException, ModelException, TranslateException {
-        Path imageFile = Paths.get("src/test/resources/dog_bike_car.jpg");
+        Path imageFile = Paths.get("src/test/resources/lion.jpg");
         Image img = ImageFactory.getInstance().fromFile(imageFile);
 
         Criteria<Image, DetectedObjects> criteria =
@@ -78,7 +78,7 @@ public final class ObjectDetection {
         Image newImage = img.duplicate(Image.Type.TYPE_INT_ARGB);
         newImage.drawBoundingBoxes(detection);
 
-        Path imagePath = outputDir.resolve("detected-dog_bike_car.png");
+        Path imagePath = outputDir.resolve("lion.jpg");
         // OpenJDK不能用alpha通道保存jpg
         newImage.save(Files.newOutputStream(imagePath), "png");
         logger.info("检测到的对象图像已保存在: {}", imagePath);

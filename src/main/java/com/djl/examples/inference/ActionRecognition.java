@@ -50,18 +50,24 @@ public final class ActionRecognition {
     public static Classifications predict() throws IOException, ModelException, TranslateException {
         Path imageFile = Paths.get("src/test/resources/action_discus_throw.png");
         Image img = ImageFactory.getInstance().fromFile(imageFile);
-
+        // 创建模型寻找器
         Criteria<Image, Classifications> criteria =
                 Criteria.builder()
+                        // 设置应用的类型 这里是目标检测
                         .optApplication(Application.CV.ACTION_RECOGNITION)
+                        // 输入 输出类型
                         .setTypes(Image.class, Classifications.class)
+                        // 过滤条件
                         .optFilter("backbone", "inceptionv3")
                         .optFilter("dataset", "ucf101")
                         .optProgress(new ProgressBar())
                         .build();
 
+        // 创建模型对象
         try (ZooModel<Image, Classifications> inception = ModelZoo.loadModel(criteria)) {
+            // 创建推理对象
             try (Predictor<Image, Classifications> action = inception.newPredictor()) {
+                // 推理并返回
                 return action.predict(img);
             }
         }

@@ -75,7 +75,7 @@ public final class TrainMnist {
                 trainer.setMetrics(new Metrics());
 
                 /*
-                 * MNIST是28x28灰度图像，预处理成28*28ndarray.
+                 * MNIST是28x28灰度图像，预处理成28*28 ndarray.
                  * 第一个轴是批处理轴, 可以使用1进行初始化.
                  */
                 Shape inputShape = new Shape(1, Mnist.IMAGE_HEIGHT * Mnist.IMAGE_WIDTH);

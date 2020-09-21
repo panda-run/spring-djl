@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: ai.djl.mxnet:mxnet-model-zoo:0.7.0-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/ai/djl/mxnet/mxnet-model-zoo/0.7.0-SNAPSHOT/mxnet-model-zoo-0.7.0-20200901.105514-84.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../apache-maven-3.6.3/repo/ai/djl/mxnet/mxnet-model-zoo/0.7.0-SNAPSHOT/mxnet-model-zoo-0.7.0-20200901.105514-84.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/ai/djl/mxnet/mxnet-model-zoo/0.7.0-SNAPSHOT/mxnet-model-zoo-0.7.0-20200901.105514-84-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../apache-maven-3.6.3/repo/ai/djl/mxnet/mxnet-model-zoo/0.7.0-SNAPSHOT/mxnet-model-zoo-0.7.0-20200901.105514-84-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/ai/djl/mxnet/mxnet-model-zoo/0.7.0-SNAPSHOT/mxnet-model-zoo-0.7.0-20200901.105514-84-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../apache-maven-3.6.3/repo/ai/djl/mxnet/mxnet-model-zoo/0.7.0-SNAPSHOT/mxnet-model-zoo-0.7.0-20200901.105514-84-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
