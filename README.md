@@ -6,6 +6,7 @@ Fast Deep Java Library
 
 * `AWS DJL` 亚马逊开源深度学习框架
 * `Spring Boot` Spring官方框架
+* `swagger-ui` 在线接口文档
 
 ## 上手指南
 * clone到本地通过maven引入该项目<br>
