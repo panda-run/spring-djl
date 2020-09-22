@@ -6,12 +6,14 @@ Fast Deep Java Library
 
 * `AWS DJL` 亚马逊开源深度学习框架
 * `Spring Boot` Spring官方框架
+* `swagger-ui` 在线接口文档
 
 ## 上手指南
 * clone到本地通过maven引入该项目<br>
 
 ## 新增内容 
 * 训练测试图像识别数据，详情见test/resources/目录下
+* `swagger-ui` 在线接口文档
 
 ## 联系我们
 在使用中有任何问题或者有什么好的技术建议，欢迎反馈给我，可以用以下联系方式跟我交流
