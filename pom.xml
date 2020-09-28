@@ -13,7 +13,7 @@
 		<java.version>8</java.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<djl.version>0.7.0-SNAPSHOT</djl.version>
+		<djl.version>0.8.0</djl.version>
 		<spring.version>2.2.1.RELEASE</spring.version>
 		<swagger.version>2.6.1</swagger.version>
 	</properties>
