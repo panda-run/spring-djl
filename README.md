@@ -27,6 +27,4 @@ Fast Deep Java Library
 * [AWS Deep Java Library](https://djl.ai)
 * [Spring](https://spring.io/)
 ## 关于作者
-一名写着不平凡的代码的平凡程序员
-
 * [James Zow](https://github.com/Jzow)
