@@ -14,8 +14,8 @@ Fast Deep Java Library
 ## 新增内容 
 * 训练测试图像识别数据，详情见test/resources/目录下
 * `swagger-ui` 在线接口文档
-* 新增线性回归例子和通过DJL工具实现的简洁线性回归例子
-* 新增通过获取FashionMnist数据集进行服装图像分类例子
+* 新增线性回归例子和通过DJL工具实现的简洁线性回归例子，详情见main/java/com/fastdjl/common/目录下ConciseLinearRegression.java
+* 新增通过获取FashionMnist数据集进行服装图像分类例子，详情见main/java/com/fastdjl/common/目录下ImageClassification.java
 
 ## 联系我们
 在使用中有任何问题或者有什么好的技术建议，欢迎反馈给我，可以用以下联系方式跟我交流
