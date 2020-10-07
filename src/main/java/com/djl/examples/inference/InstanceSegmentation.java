@@ -49,7 +49,7 @@ public final class InstanceSegmentation {
     }
 
     public static DetectedObjects predict() throws IOException, ModelException, TranslateException {
-        Path imageFile = Paths.get("src/test/resources/segmentation.jpg");
+        Path imageFile = Paths.get("src/test/resources/kitten.jpg");
         Image img = ImageFactory.getInstance().fromFile(imageFile);
 
         Criteria<Image, DetectedObjects> criteria =

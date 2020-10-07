@@ -59,7 +59,7 @@ public final class ImageClassification {
             model.setBlock(new Mlp(28 * 28, 10, new int[] {128, 64}));
 
             //如果你已经跑了TrainMnist.java示例，并将模型保存在build/model文件夹中.
-            Path modelDir = Paths.get("build/model");
+            Path modelDir = Paths.get("build/output");
             model.load(modelDir);
 
             List<String> classes =

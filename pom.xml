@@ -98,12 +98,44 @@
 			<artifactId>mxnet-engine</artifactId>
 			<version>${djl.version}</version>
 		</dependency>
+		<!-- mkl是运行的环境，这里根据自身机器做决定，如果是windows 64 可以用以下的jar-->
+		<!-- https://docs.djl.ai/mxnet/mxnet-engine/index.html -->
 		<dependency>
 			<groupId>ai.djl.mxnet</groupId>
-			<artifactId>mxnet-native-auto</artifactId>
-			<version>1.7.0-b</version>
+			<artifactId>mxnet-native-mkl</artifactId>
+			<version>1.6.0-b</version>
+			<classifier>win-x86_64</classifier>
 			<scope>runtime</scope>
 		</dependency>
+
+<!--
+		Liux GPU环境
+		<dependency>
+			<groupId>ai.djl.mxnet</groupId>
+			<artifactId>mxnet-native-mkl</artifactId>
+			<classifier>linux-x86_64</classifier>
+			<scope>runtime</scope>
+			<version>1.7.0-backport</version>
+		</dependency>
+
+		Liux CPU环境
+		<dependency>
+			<groupId>ai.djl.mxnet</groupId>
+			<artifactId>mxnet-native-cu102mkl</artifactId>
+			<classifier>linux-x86_64</classifier>
+			<version>1.7.0-backport</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		苹果系统环境
+		<dependency>
+			<groupId>ai.djl.mxnet</groupId>
+			<artifactId>mxnet-native-mkl</artifactId>
+			<classifier>osx-x86_64</classifier>
+			<version>1.7.0-backport</version>
+			<scope>runtime</scope>
+		</dependency>-->
+
 
 		<!-- swagger2 -->
 		<dependency>
@@ -122,6 +154,12 @@
 			<groupId>ch.ethz.ganymed</groupId>
 			<artifactId>ganymed-ssh2</artifactId>
 			<version>262</version>
+		</dependency>
+
+		<dependency>
+			<groupId>tech.tablesaw</groupId>
+			<artifactId>tablesaw-jsplot</artifactId>
+			<version>0.38.1</version>
 		</dependency>
 
 	</dependencies>

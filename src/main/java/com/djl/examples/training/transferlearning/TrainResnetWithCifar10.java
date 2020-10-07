@@ -188,7 +188,7 @@ public final class TrainResnetWithCifar10 {
                 ImageClassificationTranslator.builder()
                         .addTransform(new ToTensor())
                         .addTransform(new Normalize(Cifar10.NORMALIZE_MEAN, Cifar10.NORMALIZE_STD))
-                        .optSynsetUrl(synsetUrl)
+                        .optSynsetUrl(String.valueOf(synsetUrl))
                         .optApplySoftmax(true)
                         .build();
 

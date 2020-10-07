@@ -34,9 +34,8 @@ public class SwaggerConfig implements WebMvcConfigurer {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("springboot利用swagger构建api文档")
-                .description("简单优雅的restfun风格，http://blog.csdn.net/saytime")
-                .termsOfServiceUrl("http://blog.csdn.net/saytime")
+                .title("Spring Boot利用Swagger构建的Fast DJL API文档")
+                .description("目前只提供线性代数接口API文档")
                 .version("1.0")
                 .build();
     }
