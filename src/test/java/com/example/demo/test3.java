@@ -23,9 +23,9 @@ import java.util.List;
  * @author: YeJunwei  Date: 2017/3/16 Time: 17:32
  */
 public class test3 {
-    String ip = "192.168.124.135";
+    String ip = "47.114.1.215";
     String userName = "root";
-    String pwd = "root";
+    String pwd = "zw198311...";
     String path = "/home/bangsun";
 
     public void testSSH2() throws IOException {
@@ -46,4 +46,6 @@ public class test3 {
         }
         session.close();
     }
+
+
 }

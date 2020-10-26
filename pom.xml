@@ -100,13 +100,29 @@
 		</dependency>
 		<!-- mkl是运行的环境，这里根据自身机器做决定，如果是windows 64 可以用以下的jar-->
 		<!-- https://docs.djl.ai/mxnet/mxnet-engine/index.html -->
-		<dependency>
+<!--		<dependency>
 			<groupId>ai.djl.mxnet</groupId>
 			<artifactId>mxnet-native-mkl</artifactId>
 			<version>1.6.0-b</version>
 			<classifier>win-x86_64</classifier>
 			<scope>runtime</scope>
+		</dependency>-->
+
+
+		<dependency>
+			<groupId>ai.djl.mxnet</groupId>
+			<artifactId>mxnet-native-cu102mkl</artifactId>
+			<version>1.6.0</version>
+			<classifier>win-x86_64</classifier>
 		</dependency>
+
+
+<!--		<dependency>
+			<groupId>ai.djl.mxnet</groupId>
+			<artifactId>mxnet-native-cu101mkl</artifactId>
+			<version>1.6.0-b</version>
+			<classifier>win-x86_64</classifier>
+		</dependency>-->
 
 <!--
 		Liux GPU环境
