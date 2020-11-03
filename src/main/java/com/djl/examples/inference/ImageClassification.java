@@ -51,17 +51,15 @@ public final class ImageClassification {
     }
 
     public static Classifications predict() throws IOException, ModelException, TranslateException {
-        Path imageFile = Paths.get("src/test/resources/0.png");
+        Path imageFile = Paths.get("src/test/resources/cat.jpg");
         Image img = ImageFactory.getInstance().fromFile(imageFile);
 
         String modelName = "mlp";
         try (Model model = Model.newInstance(modelName)) {
             model.setBlock(new Mlp(28 * 28, 10, new int[] {128, 64}));
 
-            //如果你已经跑了TrainMnist.java示例，并将模型保存在build/model文件夹中.
             Path modelDir = Paths.get("build/output");
             model.load(modelDir);
-
             List<String> classes =
                     IntStream.range(0, 10).mapToObj(String::valueOf).collect(Collectors.toList());
             Translator<Image, Classifications> translator =
