@@ -27,12 +27,11 @@ import java.nio.file.Paths;
  * Description: 动物分类推理类
  * Author: James Zow
  * Date: 2020/10/23 17:24
- * Version:
+ * Version: 1.0
  **/
 public class ClassificationInference {
 
     private final Logger logger = LoggerFactory.getLogger(ClassificationInference.class);
-
 
     public  Classifications  predict(String imagePath) throws IOException, ModelException, TranslateException {
         // src/test/resources/cat.jpg

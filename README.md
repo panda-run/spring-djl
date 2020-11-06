@@ -10,12 +10,14 @@ Fast Deep Java Library
 
 ## 上手指南
 * clone到本地通过maven引入该项目<br>
+* 运行Application启动类,页面访问http://localhost:7798/swagger-ui.html
 
 ## 新增内容 
 * 训练测试图像识别数据，详情见test/resources/目录下
 * `swagger-ui` 在线接口文档
 * 新增线性回归例子和通过DJL工具实现的简洁线性回归例子，详情见main/java/com/fastdjl/common/目录下ConciseLinearRegression.java
 * 新增通过获取FashionMnist数据集进行服装图像分类例子，详情见main/java/com/fastdjl/common/目录下ImageClassification.java
+* 新增通过swagger-ui进行图像分类接口，详情见main/java/com/fastdjl/controller/ClassificationController.java
 
 ## 联系我们
 在使用中有任何问题或者有什么好的技术建议，欢迎反馈给我，可以用以下联系方式跟我交流
