@@ -33,16 +33,21 @@ public class ClassificationInference {
 
     private final Logger logger = LoggerFactory.getLogger(ClassificationInference.class);
 
-    public  Classifications  predict(String imagePath) throws IOException, ModelException, TranslateException {
+    public Classifications predict(String imagePath) throws IOException, ModelException, TranslateException {
         // src/test/resources/cat.jpg
-        Path path = Paths.get(imagePath);
-        Image image = ImageFactory.getInstance().fromFile(path);
-
+        Image image = null;
+        if (imagePath.contains("http") && imagePath.endsWith(".jpg") || imagePath.endsWith(".png")
+                || imagePath.endsWith(".jpeg") || imagePath.endsWith(".gif")){
+            image = ImageFactory.getInstance().fromUrl(imagePath);
+        }else {
+            Path path = Paths.get(imagePath);
+            image = ImageFactory.getInstance().fromFile(path);
+        }
         String modelUrl = "https://alpha-djl-demos.s3.amazonaws.com/model/djl-blockrunner/mxnet_resnet18.zip?model_name=resnet18_v1";
 
         Translator<Image, Classifications> translator =
                 ImageClassificationTranslator.builder()
-                        .setPipeline(new Pipeline().add(new Resize(224,224)).add(new ToTensor()))
+                        .setPipeline(new Pipeline().add(new Resize(224, 224)).add(new ToTensor()))
                         .optApplySoftmax(true)
                         .build();
 
@@ -53,7 +58,6 @@ public class ClassificationInference {
                         .optModelUrls(modelUrl)
                         .optTranslator(translator)
                         .build();
-
 
         try (ZooModel<Image, Classifications> model = ModelZoo.loadModel(criteria)) {
             try (Predictor<Image, Classifications> predictor = model.newPredictor()) {
