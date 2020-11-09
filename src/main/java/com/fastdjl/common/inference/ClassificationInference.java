@@ -55,8 +55,9 @@ public class ClassificationInference {
                 Criteria.builder()
                         .optApplication(Application.CV.IMAGE_CLASSIFICATION)
                         .setTypes(Image.class, Classifications.class)
-                        .optModelUrls(modelUrl)
                         .optTranslator(translator)
+                        .optModelUrls("build/model/mxnet_resnet18")
+                        .optModelName("resnet18_v1")
                         .build();
 
         try (ZooModel<Image, Classifications> model = ModelZoo.loadModel(criteria)) {
