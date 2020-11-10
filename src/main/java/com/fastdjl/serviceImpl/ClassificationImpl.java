@@ -33,12 +33,16 @@ public class ClassificationImpl implements Classification {
             log.info(result);
         } catch (IOException e) {
             log.error(e.getMessage());
+            return e.getMessage();
         } catch (ModelException e) {
             log.error(e.getMessage());
+            return e.getMessage();
         } catch (TranslateException e) {
             log.error(e.getMessage());
+            return e.getMessage();
         } catch (Exception e) {
             log.error(e.getMessage());
+            return e.getMessage();
         }
         return result;
     }

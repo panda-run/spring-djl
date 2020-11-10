@@ -31,7 +31,7 @@ public class ClassificationController {
 
     @RequestMapping(value = "/v1/simple", method = RequestMethod.POST)
     @ApiOperation(value = "图像识别分类" ,notes = "图像识别分类接口")
-  //  @ApiImplicitParam(name = "imagePath", value = "图片地址（支持网络url图片和本地图片地址）", required = true, dataType = "String", paramType = "body")
+    @ApiImplicitParam(name = "imagePath", value = "图片地址（支持网络url图片和本地图片地址）", required = true, dataType = "String", paramType = "body")
     public String animalClassification(@RequestBody String imagePath) {
         log.info("请求分类接口Start...");
         log.info("请求图片地址:" + imagePath);
