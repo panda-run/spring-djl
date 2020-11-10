@@ -10,7 +10,8 @@ Fast Deep Java Library
 
 ## 上手指南
 * clone到本地通过maven引入该项目<br>
-* 运行Application启动类,页面访问http://localhost:7798/swagger-ui.html
+* 运行Application启动类,页面访问http://localhost:7798/swagger-ui.html<br>
+* 实现softmax和totensor运行com/djl/examples/inference/,下的AnimalClassifications代码即可
 
 ## 新增内容 
 * 训练测试图像识别数据，详情见test/resources/目录下
