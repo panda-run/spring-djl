@@ -1,6 +1,5 @@
 package com.fastdjl.controller;
 
-import com.fastdjl.common.LinearRegression;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -29,7 +28,7 @@ public class LinearRegressionController {
 			@ApiImplicitParam(name = "inputs", value = "特征数量", dataType = "Integer", required = false)
 	})
 	public String trainingModel(Float trueW, Float trueB, Integer examples, Integer inputs) {
-		// LinearRegression.trainingModel(examples,inputs);
+	//	 LinearRegression.trainingModel(examples,inputs);
 		return "test api success";
 	}
 

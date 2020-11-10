@@ -1,19 +1,19 @@
 package com.fastdjl.common.conversion;
 
-import java.util.List;
-import java.util.Map;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.JSONLibDataFormatSerializer;
 import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * ClassName: FastJsonUtils
  * Description: fastjson工具类
  * Author: James Zow
- * Date: 2020/11/6 15:09
+ * Date: 2019/11/6 15:09
  * Version:
  **/
 public class FastJsonUtils {

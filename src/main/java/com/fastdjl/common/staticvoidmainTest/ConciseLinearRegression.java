@@ -1,4 +1,4 @@
-package com.fastdjl.common;
+package com.fastdjl.common.staticvoidmainTest;
 
 import ai.djl.Device;
 import ai.djl.Model;

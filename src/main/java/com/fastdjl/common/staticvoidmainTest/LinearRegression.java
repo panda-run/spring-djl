@@ -1,17 +1,19 @@
-package com.fastdjl.common;
+package com.fastdjl.common.staticvoidmainTest;
 
 import ai.djl.Device;
-import ai.djl.ndarray.*;
-import ai.djl.ndarray.types.*;
-import ai.djl.ndarray.index.*;
-import ai.djl.ndarray.types.DataType;
-import ai.djl.training.GradientCollector;
 import ai.djl.engine.Engine;
+import ai.djl.ndarray.NDArray;
+import ai.djl.ndarray.NDList;
+import ai.djl.ndarray.NDManager;
+import ai.djl.ndarray.index.NDIndex;
+import ai.djl.ndarray.types.DataType;
+import ai.djl.ndarray.types.Shape;
+import ai.djl.training.GradientCollector;
 import ai.djl.training.dataset.ArrayDataset;
 import ai.djl.training.dataset.Batch;
-
-import tech.tablesaw.api.*;
-import tech.tablesaw.plotly.api.*;
+import tech.tablesaw.api.FloatColumn;
+import tech.tablesaw.api.Table;
+import tech.tablesaw.plotly.api.ScatterPlot;
 
 /**
  * ClassName: LinearRegression
@@ -37,13 +39,17 @@ public class LinearRegression {
         return y;
     }
 
+
     /**
      * main 程序入口调试方法
      *
      * @param args
      */
     public static void main(String[] args) {
-        trainingModel(1000, 2);
+        float [] x = {4.2f,-1.5f};
+      String e =  trainingModel(1000, 2,3.5f,x,0.03f,5);
+      System.err.println(e);
+
     }
 
     /**
@@ -182,12 +188,14 @@ public class LinearRegression {
     /**
      * 训练模型
      */
-    public static void trainingModel(int numExamples, int numInputs) {
+    public static String trainingModel(int numExamples, int numInputs,
+                                     float trueBParameter, float[] trueWParameter,
+                                     float learning, int numEpochs) {
         NDManager manager = NDManager.newBaseManager();
         // 真实权重
-        NDArray trueW = manager.create(new float[]{2, -3.4f});
+        NDArray trueW = manager.create(trueWParameter);
         // 真实偏差
-        float trueB = 4.2f;
+        float trueB = trueBParameter;
         LinearRegression lc = autoData(manager, trueW, trueB, numExamples, numInputs);
         NDArray features = lc.getX();
         NDArray labels = lc.getY();
@@ -200,9 +208,8 @@ public class LinearRegression {
                 .build();
 
         // 学习率
-        float lr = 0.03f;
+        float lr = learning;
         // 迭代次数（循环）
-        int numEpochs = 3;
         // 均值为0且标准偏差为的正态分布中采样随机数来初始化权重  0.01
         NDArray w = manager.randomNormal(0, 0.01f, new Shape(2, 1), DataType.FLOAT32, Device.defaultDevice());
         // 偏差b为0
@@ -213,6 +220,7 @@ public class LinearRegression {
             param.attachGradient();
         }
         try {
+            StringBuffer stringBuffer = new StringBuffer();
             for (int epoch = 0; epoch < numEpochs; epoch++) {
                 // 假设示例的数量可以除以批大小，所有训练数据集中的例子在一个epoch中使用一次迭代。用X给出了小批量示例的特征和y标签.
                 for (Batch batch : dataset.getData(manager)) {
@@ -229,14 +237,24 @@ public class LinearRegression {
                     batch.close();
                 }
                 NDArray trainL = squaredLoss(linreg(features, params.get(0), params.get(1)), labels);
+                int ep = epoch + 1;
+                stringBuffer.append("迭代次数:" + ep + "\n");
+                long a = (long) trainL.mean().getFloat();
+                stringBuffer.append("损失值:" +  a + "\n");
                 System.out.printf("迭代次数 %d, 损失值 %f\n", epoch + 1, trainL.mean().getFloat());
             }
             float[] c = trueW.sub(params.get(0).reshape(trueW.getShape())).toFloatArray();
             System.out.printf("权重估计误差: [%f %f]\n", c[0], c[1]);
             System.out.printf("真实偏差值: %f\n", trueB);
             System.out.printf("计算出来的偏差值: %f\n", params.get(1).getFloat());
+            stringBuffer.append("权重估计误差:[" + c[0]+","+ c[1]+"]\n");
+            stringBuffer.append("真实偏差值:" + trueB + "\n");
+            stringBuffer.append("计算出来的偏差值:" + params.get(1).getFloat() + "\n");
+            String as =  stringBuffer.toString();
+            return as;
         } catch (Exception e) {
             e.printStackTrace();
+            return e.getMessage();
         }
     }
 }

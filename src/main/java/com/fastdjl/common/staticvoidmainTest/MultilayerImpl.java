@@ -1,36 +1,28 @@
-package com.fastdjl.common;
+package com.fastdjl.common.staticvoidmainTest;
 
-import ai.djl.Device;
-import ai.djl.*;
-import ai.djl.metric.*;
-import ai.djl.ndarray.*;
-import ai.djl.ndarray.types.*;
-import ai.djl.ndarray.index.*;
-import ai.djl.nn.*;
-import ai.djl.nn.core.*;
-import ai.djl.training.*;
-import ai.djl.training.initializer.*;
-import ai.djl.training.loss.*;
-import ai.djl.training.listener.*;
-import ai.djl.training.evaluator.*;
-import ai.djl.training.optimizer.*;
-import ai.djl.training.tracker.*;
-import ai.djl.training.dataset.*;
+import ai.djl.Model;
+import ai.djl.basicdataset.FashionMnist;
+import ai.djl.metric.Metrics;
+import ai.djl.ndarray.types.Shape;
+import ai.djl.nn.Activation;
+import ai.djl.nn.Blocks;
+import ai.djl.nn.SequentialBlock;
+import ai.djl.nn.core.Linear;
+import ai.djl.training.DefaultTrainingConfig;
+import ai.djl.training.EasyTrain;
+import ai.djl.training.Trainer;
+import ai.djl.training.dataset.Dataset;
+import ai.djl.training.evaluator.Accuracy;
+import ai.djl.training.initializer.NormalInitializer;
+import ai.djl.training.listener.TrainingListener;
+import ai.djl.training.loss.Loss;
+import ai.djl.training.optimizer.Optimizer;
+import ai.djl.training.tracker.Tracker;
 import ai.djl.translate.TranslateException;
-import ai.djl.util.*;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
-import ai.djl.basicdataset.FashionMnist;
-import ai.djl.training.dataset.Dataset;
-
-import tech.tablesaw.api.*;
-import tech.tablesaw.plotly.api.*;
-import tech.tablesaw.plotly.components.*;
-import tech.tablesaw.plotly.Plot;
-import tech.tablesaw.plotly.components.Figure;
 /**
  * ClassName: MultilayerImpl
  * Description: 多层感知器实现

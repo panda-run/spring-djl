@@ -1,15 +1,17 @@
-package com.fastdjl.common;
+package com.fastdjl.common.staticvoidmainTest;
 
-import ai.djl.ndarray.*;
-import ai.djl.training.dataset.*;
 import ai.djl.basicdataset.FashionMnist;
+import ai.djl.ndarray.NDArray;
+import ai.djl.ndarray.NDManager;
+import ai.djl.training.dataset.ArrayDataset;
+import ai.djl.training.dataset.Dataset;
 import ai.djl.translate.TranslateException;
 import com.fastdjl.javase.Container;
 import com.fastdjl.javase.ImagePanel;
+
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import java.io.IOException;
 
 /**
