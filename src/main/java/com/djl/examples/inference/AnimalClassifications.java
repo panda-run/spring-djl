@@ -5,6 +5,8 @@ import ai.djl.inference.Predictor;
 import ai.djl.modality.Classifications;
 import ai.djl.modality.cv.Image;
 import ai.djl.modality.cv.ImageFactory;
+import ai.djl.modality.cv.transform.CenterCrop;
+import ai.djl.modality.cv.transform.Normalize;
 import ai.djl.modality.cv.transform.Resize;
 import ai.djl.modality.cv.transform.ToTensor;
 import ai.djl.modality.cv.translator.ImageClassificationTranslator;
@@ -48,12 +50,13 @@ public class AnimalClassifications {
     }
 
     public static Classifications  predict() throws IOException, ModelException, TranslateException {
-        Path imagePath = Paths.get("src/test/resources/balana.jpg");
+        Path imagePath = Paths.get("src/test/resources/lion.jpg");
         Image image = ImageFactory.getInstance().fromFile(imagePath);
 
         Translator<Image, Classifications> translator = new Translator<Image, Classifications>() {
 
             private List<String> classes ;
+
 
             @Override
             public Batchifier getBatchifier() {
@@ -68,19 +71,11 @@ public class AnimalClassifications {
 
             @Override
             public NDList processInput(TranslatorContext translatorContext, Image image) throws Exception {
-/*                NDArray array = image.toNDArray(translatorContext.getNDManager(), Image.Flag.COLOR);
-                NDManager manager = NDManager.newBaseManager();
-                array = manager.randomNormal(0,1, new Shape(3, 224, 224), DataType.FLOAT32, Device.defaultDevice());
-                NDList list = new NDList(array);;
-                return list;*/
+
                 NDArray array = image.toNDArray(translatorContext.getNDManager(), Image.Flag.COLOR);
                 array = NDImageUtils.resize(array, 256, 256);
                 array = NDImageUtils.centerCrop(array, 224, 224);
-
-                // TODO Implement toTensor() here
-                // remove the reshape here
                 array = array.reshape(new Shape(3, 224, 224));
-
                 array = NDImageUtils.normalize(array, new float[] {0.485f, 0.456f, 0.406f}, new float[] {0.229f, 0.224f, 0.225f});
                 return new NDList(array);
             }
