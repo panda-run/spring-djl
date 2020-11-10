@@ -5,11 +5,6 @@ import ai.djl.inference.Predictor;
 import ai.djl.modality.Classifications;
 import ai.djl.modality.cv.Image;
 import ai.djl.modality.cv.ImageFactory;
-import ai.djl.modality.cv.transform.CenterCrop;
-import ai.djl.modality.cv.transform.Normalize;
-import ai.djl.modality.cv.transform.Resize;
-import ai.djl.modality.cv.transform.ToTensor;
-import ai.djl.modality.cv.translator.ImageClassificationTranslator;
 import ai.djl.modality.cv.util.NDImageUtils;
 import ai.djl.ndarray.NDArray;
 import ai.djl.ndarray.NDList;
@@ -21,22 +16,17 @@ import ai.djl.repository.zoo.ModelZoo;
 import ai.djl.repository.zoo.ZooModel;
 import ai.djl.translate.*;
 import ai.djl.util.Utils;
-import javafx.stage.Modality;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+
 
 
 /**
- * 动物检测
+ * 分类
  */
 public class AnimalClassifications {
 
@@ -50,13 +40,14 @@ public class AnimalClassifications {
     }
 
     public static Classifications  predict() throws IOException, ModelException, TranslateException {
-        Path imagePath = Paths.get("src/test/resources/lion.jpg");
+        // Path imagePath = Paths.get("src/test/resources/lion.jpg");
+        Path imagePath = Paths.get("src/test/resources/banana.jpg");
         Image image = ImageFactory.getInstance().fromFile(imagePath);
 
         Translator<Image, Classifications> translator = new Translator<Image, Classifications>() {
 
+            // 分类对应的class
             private List<String> classes ;
-
 
             @Override
             public Batchifier getBatchifier() {
@@ -65,23 +56,35 @@ public class AnimalClassifications {
 
             @Override
             public Classifications processOutput(TranslatorContext translatorContext, NDList ndList) throws Exception {
-                NDArray probabilities = ndList.singletonOrThrow().softmax(0);
+                NDArray resultArray = ndList.singletonOrThrow();
+                NDArray xexp = resultArray.exp();
+                NDArray sum = xexp.sum(new int[]{0}, true);
+                // div 是做 广播机制的 矩阵
+                NDArray probabilities = xexp.div(sum);
                 return new Classifications(classes, probabilities);
             }
 
             @Override
             public NDList processInput(TranslatorContext translatorContext, Image image) throws Exception {
-
+                // 图片转换NDArray 并且修改尺寸等参数
                 NDArray array = image.toNDArray(translatorContext.getNDManager(), Image.Flag.COLOR);
-                array = NDImageUtils.resize(array, 256, 256);
+                array = NDImageUtils.resize(array, 224, 224);
                 array = NDImageUtils.centerCrop(array, 224, 224);
-                array = array.reshape(new Shape(3, 224, 224));
-                array = NDImageUtils.normalize(array, new float[] {0.485f, 0.456f, 0.406f}, new float[] {0.229f, 0.224f, 0.225f});
+                // totenser 操作
+                array = array.expandDims(0);
+                array = array.div(255.0D).transpose(new int[]{0, 3, 1, 2});
+                array = array.reshape(new Shape(3, 224, 224)).expandDims(0);
+                array = array.squeeze(0);
+                // 由于输入的是unit8 类型 这里做一下转换
+                array = array.toType(DataType.FLOAT32, true);
+                // 归一化处理
+                array = NDImageUtils.normalize(array, new float[] {0.435f, 0.456f, 0.406f}, new float[] {0.229f, 0.224f, 0.225f});
                 return new NDList(array);
             }
 
             @Override
             public void prepare(NDManager manager, Model model) throws IOException {
+                // 获取模型里面的classname
                 classes =  model.getArtifact("synset.txt", Utils::readLines);;
             }
         };
@@ -90,6 +93,7 @@ public class AnimalClassifications {
                 Criteria.builder()
                         .optApplication(Application.CV.IMAGE_CLASSIFICATION)
                         .setTypes(Image.class, Classifications.class)
+                        // 自定义的translator
                         .optTranslator(translator)
                         .optModelUrls("build/model/mxnet_resnet18")
                         .optModelName("resnet18_v1")
@@ -101,13 +105,6 @@ public class AnimalClassifications {
                 return animalObjects;
             }
         }
-    }
-
-    public static NDArray softmax(NDArray X){
-        NDArray Xexp = X.exp();
-        NDArray partiton = Xexp.sum(new int[]{1}, true);
-        // div 返回这里用到矩阵广播机制
-        return Xexp.div(partiton);
     }
 
 }
