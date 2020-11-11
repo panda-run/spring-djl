@@ -2,10 +2,8 @@ package com.fastdjl.controller;
 
 import com.fastdjl.common.conversion.FastJsonUtils;
 import com.fastdjl.service.Classification;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.*;
+import io.swagger.v3.oas.annotations.Parameter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +28,9 @@ public class ClassificationController {
     private Classification classification;
 
     @RequestMapping(value = "/v1/simple", method = RequestMethod.POST)
-    @ApiOperation(value = "图像识别分类" ,notes = "图像识别分类接口")
-    @ApiImplicitParam(name = "imagePath", value = "图片地址（支持网络url图片和本地图片地址）", required = true, dataType = "String", paramType = "body")
-    public String animalClassification(@RequestBody String imagePath) {
+    @ApiOperation(value = "图像识别分类" ,notes = "图像识别分类接口（支持本地图片文件地址和网络图片URL地址）")
+    @ApiImplicitParam(name = "imagePath", value = "图片地址", required = true)
+    public String animalClassification(String imagePath) {
         log.info("请求分类接口Start...");
         log.info("请求图片地址:" + imagePath);
         String result = classification.ImageClassification(imagePath);

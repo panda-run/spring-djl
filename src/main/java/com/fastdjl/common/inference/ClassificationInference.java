@@ -34,7 +34,7 @@ public class ClassificationInference {
     private final Logger logger = LoggerFactory.getLogger(ClassificationInference.class);
 
     public Classifications predict(String imagePath) throws IOException, ModelException, TranslateException {
-        // src/test/resources/cat.jpg
+        // 全局变量没给null
         Image image = null;
         if (imagePath.contains("http") && imagePath.endsWith(".jpg") || imagePath.endsWith(".png")
                 || imagePath.endsWith(".jpeg") || imagePath.endsWith(".gif")){

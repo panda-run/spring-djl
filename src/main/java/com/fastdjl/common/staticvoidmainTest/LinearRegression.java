@@ -47,9 +47,7 @@ public class LinearRegression {
      */
     public static void main(String[] args) {
         float [] x = {4.2f,-1.5f};
-      String e =  trainingModel(1000, 2,3.5f,x,0.03f,5);
-      System.err.println(e);
-
+      trainingModel(1000, 2,3.5f,x,0.03f,5);
     }
 
     /**
@@ -188,7 +186,7 @@ public class LinearRegression {
     /**
      * 训练模型
      */
-    public static String trainingModel(int numExamples, int numInputs,
+    public static void trainingModel(int numExamples, int numInputs,
                                      float trueBParameter, float[] trueWParameter,
                                      float learning, int numEpochs) {
         NDManager manager = NDManager.newBaseManager();
@@ -220,7 +218,6 @@ public class LinearRegression {
             param.attachGradient();
         }
         try {
-            StringBuffer stringBuffer = new StringBuffer();
             for (int epoch = 0; epoch < numEpochs; epoch++) {
                 // 假设示例的数量可以除以批大小，所有训练数据集中的例子在一个epoch中使用一次迭代。用X给出了小批量示例的特征和y标签.
                 for (Batch batch : dataset.getData(manager)) {
@@ -237,24 +234,15 @@ public class LinearRegression {
                     batch.close();
                 }
                 NDArray trainL = squaredLoss(linreg(features, params.get(0), params.get(1)), labels);
-                int ep = epoch + 1;
-                stringBuffer.append("迭代次数:" + ep + "\n");
-                long a = (long) trainL.mean().getFloat();
-                stringBuffer.append("损失值:" +  a + "\n");
                 System.out.printf("迭代次数 %d, 损失值 %f\n", epoch + 1, trainL.mean().getFloat());
             }
+
             float[] c = trueW.sub(params.get(0).reshape(trueW.getShape())).toFloatArray();
             System.out.printf("权重估计误差: [%f %f]\n", c[0], c[1]);
             System.out.printf("真实偏差值: %f\n", trueB);
             System.out.printf("计算出来的偏差值: %f\n", params.get(1).getFloat());
-            stringBuffer.append("权重估计误差:[" + c[0]+","+ c[1]+"]\n");
-            stringBuffer.append("真实偏差值:" + trueB + "\n");
-            stringBuffer.append("计算出来的偏差值:" + params.get(1).getFloat() + "\n");
-            String as =  stringBuffer.toString();
-            return as;
         } catch (Exception e) {
             e.printStackTrace();
-            return e.getMessage();
         }
     }
 }
