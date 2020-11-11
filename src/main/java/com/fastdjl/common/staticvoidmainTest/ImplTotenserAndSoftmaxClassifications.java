@@ -33,15 +33,17 @@ import java.util.List;
 /**
  * 分类
  */
-public class ImplTotenserAndSoftmaxClassifications {
+public class ImplTotenserAndSoftmaxClassifications implements Runnable {
 
     private static final Logger logger = LoggerFactory.getLogger(ImplTotenserAndSoftmaxClassifications.class);
 
     public ImplTotenserAndSoftmaxClassifications() {}
 
-    public static void main(String[] args) throws IOException, ModelException, TranslateException {
-         Classifications classifications = ImplTotenserAndSoftmaxClassifications.predict();
-         logger.info("{}", classifications);
+    public static void main(String[] args) {
+        ImplTotenserAndSoftmaxClassifications a = new ImplTotenserAndSoftmaxClassifications();
+        new Thread(a,"线程A 推理").start();
+        new Thread(a,"线程B 推理").start();
+        new Thread(a,"线程C 推理").start();
     }
 
     public static Classifications  predict() throws IOException, ModelException, TranslateException {
@@ -112,4 +114,22 @@ public class ImplTotenserAndSoftmaxClassifications {
         }
     }
 
+    @Override
+    public void run()  {
+        try {
+            int count = 10;
+            for (int i = 0; i < count; i++) {
+                System.out.println(Thread.currentThread().getName() + "  运行count= " + count--);
+                Classifications classifications = ImplTotenserAndSoftmaxClassifications.predict();
+                logger.info("{}", classifications);
+                try {
+                    Thread.sleep((int) Math.random() * 10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }
