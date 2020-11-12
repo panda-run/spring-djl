@@ -41,12 +41,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * ClassName: ObjectDetectionWithTensorflowSavedModel
- * Description: TODD
- * Author: James Zow
- * Date: 2020/9/28 0028 20:14
- * 利用tensorflow2检测模型保存模型推断目标检测的一个实例
- * 动物园。
  * 使用EfficientDet、SSD MobileNet V2、从<a下载的更快的RCNN Inception Resnet V2进行测试
  **/
 
