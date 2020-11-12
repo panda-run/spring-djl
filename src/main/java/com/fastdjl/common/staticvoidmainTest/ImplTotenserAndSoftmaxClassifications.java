@@ -31,8 +31,12 @@ import java.util.List;
 
 
 /**
- * 分类
- */
+ * ClassName: ImplTotenserAndSoftmaxClassifications
+ * Description: 多线程分类推理
+ * Author: James Zow
+ * Date: 2020/10/21 16:55
+ * Version:
+ **/
 public class ImplTotenserAndSoftmaxClassifications implements Runnable {
 
     private static final Logger logger = LoggerFactory.getLogger(ImplTotenserAndSoftmaxClassifications.class);
