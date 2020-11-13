@@ -9,12 +9,19 @@
 	<name>FastDJL</name>
 	<description>FastDJL</description>
 
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.2.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
 	<properties>
 		<java.version>8</java.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<djl.version>0.8.0</djl.version>
-		<spring.version>2.2.1.RELEASE</spring.version>
+		<spring.version>2.2.2.RELEASE</spring.version>
 		<swagger.version>3.0.0</swagger.version>
 	</properties>
 
@@ -177,19 +184,11 @@
 	</dependencies>
 
 	<build>
+		<finalName>FastDJL</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>${spring.version}</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>8</source>
-					<target>8</target>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
