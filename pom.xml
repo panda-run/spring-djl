@@ -17,7 +17,6 @@
 	</parent>
 
 	<properties>
-		<java.version>8</java.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<djl.version>0.8.0</djl.version>
@@ -105,6 +104,14 @@
 			<artifactId>mxnet-engine</artifactId>
 			<version>${djl.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna</artifactId>
+			<version>5.3.0</version>
+		</dependency>
+
+
 		<!-- mkl是运行的环境，这里根据自身机器做决定，如果是windows 64 可以用以下的jar-->
 		<!-- https://docs.djl.ai/mxnet/mxnet-engine/index.html -->
 		<dependency>
@@ -112,7 +119,6 @@
 			<artifactId>mxnet-native-mkl</artifactId>
 			<version>1.6.0-b</version>
 			<classifier>win-x86_64</classifier>
-			<scope>runtime</scope>
 		</dependency>
 
 		<!--
