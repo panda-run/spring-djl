@@ -1,37 +1,23 @@
-## Welcome to GitHub Pages
+## 欢迎使用Fast DJL
 
-You can use the [editor on GitHub](https://github.com/Jzow/FastDJL/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+您可以通过本项目快速部署一个推理的例子。
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Fast DJL 所使用的框架为[DJL](http://djl.ai)和[Spring Boot](https://spring.io/projects/spring-boot)以及接口[Swagger-Ui](https://swagger.io/)
 
-### Markdown
+## 上手指南
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- clone到本地通过maven
+- 运行Application启动类，页面访问[http：// localhost：7798 / swagger-ui / index.html](http://localhost:7798/swagger-ui/index.html)
 
-```markdown
-Syntax highlighted code block
+## 新增内容
 
-# Header 1
-## Header 2
-### Header 3
+- 训练测试图像识别数据，详情见test / resources /目录下
+- `swagger-ui` 在线接口文档
+- 添加线性回归示例和通过DJL工具实现的简洁线性回归示例，详情见main / java / com / fastdjl / common / staticvoidmainTest /目录下ConciseLinearRegression.java
+- 新增通过获取FashionMnist数据集进行服装图像分类示例，详情见main / java / com / fastdjl / common / staticvoidmainTest /目录下ImageClassification.java
+- 新增通过swagger-ui进行图像分类接口，详情见main / java / com / fastdjl / controller / ClassificationController.java
+- 实现softmax和totensor运行示例，详情见main / java / com / fastdjl / common / staticvoidmainTest /目录下ImplTotenserAndSoftmaxClassifications.java
 
-- Bulleted
-- List
+### 关于作者
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Jzow/FastDJL/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+- [James Zow](https://github.com/Jzow)
