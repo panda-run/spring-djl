@@ -12,11 +12,11 @@ Fast DJL 所使用的框架为[DJL](http://djl.ai)和[Spring Boot](https://sprin
 ## 新增内容
 
 - 训练测试图像识别数据，详情见test / resources /目录下
-- 'swagger-ui' 在线接口文档
-- 添加线性回归示例和通过DJL工具实现的简洁线性回归示例，详情见'main / java / com / fastdjl / common / staticvoidmainTest /'目录下'ConciseLinearRegression.java'
-- 新增通过获取FashionMnist数据集进行服装图像分类示例，详情见'main / java / com / fastdjl / common / staticvoidmainTest /目录下ImageClassification.java'
-- 新增通过swagger-ui进行图像分类接口，详情见'main / java / com / fastdjl / controller / ClassificationController.java'
-- 实现softmax和totensor运行示例，详情见'main / java / com / fastdjl / common / staticvoidmainTest /'目录下'ImplTotenserAndSoftmaxClassifications.java'
+- swagger-ui在线接口文档
+- 添加线性回归示例和通过DJL工具实现的简洁线性回归示例，详情见main / java / com / fastdjl / common / staticvoidmainTest /'目录下'ConciseLinearRegression.java
+- 新增通过获取FashionMnist数据集进行服装图像分类示例，详情见main / java / com / fastdjl / common / staticvoidmainTest /目录下ImageClassification.java
+- 新增通过swagger-ui进行图像分类接口，详情见main / java / com / fastdjl / controller / ClassificationController.java
+- 实现softmax和totensor运行示例，详情见main / java / com / fastdjl / common / staticvoidmainTest /'目录下'ImplTotenserAndSoftmaxClassifications.java
 
 ### 关于作者
 
