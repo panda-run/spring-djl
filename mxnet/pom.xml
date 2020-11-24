@@ -59,7 +59,7 @@
             <version>1.7.25</version>
             <scope>compile</scope>
         </dependency>
-        <!-- AWS DJL -->
+        <!-- AWS DJL Mxnet JAR -->
         <dependency>
             <groupId>ai.djl</groupId>
             <artifactId>api</artifactId>
@@ -76,21 +76,18 @@
             <groupId>ai.djl.mxnet</groupId>
             <artifactId>mxnet-model-zoo</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-csv</artifactId>
             <version>1.8</version>
         </dependency>
-
-        <!-- mkl是运行的环境，这里根据自身机器做决定，如果是windows 64 可以用以下的jar-->
-        <!-- https://docs.djl.ai/mxnet/mxnet-engine/index.html -->
-        <!-- 这个模块用的是mxnet引擎和device cpu -->
         <dependency>
             <groupId>ai.djl.mxnet</groupId>
             <artifactId>mxnet-engine</artifactId>
-            <version>0.8.0</version>
         </dependency>
+        <!-- mkl是运行的环境，这里根据自身机器做决定，如果是windows 64 可以用以下的jar-->
+        <!-- https://docs.djl.ai/mxnet/mxnet-engine/index.html -->
+        <!-- 这个模块用的是mxnet引擎和device cpu -->
         <dependency>
             <groupId>ai.djl.mxnet</groupId>
             <artifactId>mxnet-native-mkl</artifactId>
