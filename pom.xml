@@ -6,6 +6,7 @@
 	<version>0.0.1</version>
 	<packaging>pom</packaging>
 	<name>FastDJL</name>
+<<<<<<< HEAD
 	<modelVersion>4.0.0</modelVersion>
 	<description>FastDJL总项目的POM文件</description>
 	<modules>
@@ -14,14 +15,30 @@
 		<module>pytorch</module>
 		<module>onnxruntime</module>
 	</modules>
+=======
+	<description>FastDJL</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.2.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+>>>>>>> f9d321340f96ad2c1d3a54e6c6b0b9b4a411cd98
 	<properties>
-		<java.version>8</java.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+<<<<<<< HEAD
+=======
+		<djl.version>0.8.0</djl.version>
+		<spring.version>2.2.2.RELEASE</spring.version>
+>>>>>>> f9d321340f96ad2c1d3a54e6c6b0b9b4a411cd98
 		<swagger.version>3.0.0</swagger.version>
 		<spring.version>2.2.2.RELEASE</spring.version>
 		<djl.version>0.8.0</djl.version>
 	</properties>
+<<<<<<< HEAD
 	<dependencyManagement>
 		<dependencies>
 			<!-- Spring -->
@@ -83,4 +100,182 @@
 
 		</dependencies>
 	</dependencyManagement>
+=======
+
+	<dependencies>
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<version>${spring.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- json -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.58</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-cli</groupId>
+			<artifactId>commons-cli</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<version>2.12.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.5</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.9.5</version>
+		</dependency>
+
+		<!-- AWS DJL -->
+		<dependency>
+			<groupId>ai.djl</groupId>
+			<artifactId>api</artifactId>
+			<version>${djl.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ai.djl</groupId>
+			<artifactId>basicdataset</artifactId>
+			<version>${djl.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ai.djl</groupId>
+			<artifactId>model-zoo</artifactId>
+			<version>${djl.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ai.djl.mxnet</groupId>
+			<artifactId>mxnet-model-zoo</artifactId>
+			<version>${djl.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ai.djl.mxnet</groupId>
+			<artifactId>mxnet-engine</artifactId>
+			<version>${djl.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna</artifactId>
+			<version>5.3.0</version>
+		</dependency>
+
+
+		<!-- mkl是运行的环境，这里根据自身机器做决定，如果是windows 64 可以用以下的jar-->
+		<!-- https://docs.djl.ai/mxnet/mxnet-engine/index.html -->
+		<dependency>
+			<groupId>ai.djl.mxnet</groupId>
+			<artifactId>mxnet-native-mkl</artifactId>
+			<version>1.6.0-b</version>
+			<classifier>win-x86_64</classifier>
+		</dependency>
+
+		<!--
+                <dependency>
+                    <groupId>ai.djl.mxnet</groupId>
+                    <artifactId>mxnet-native-cu102mkl</artifactId>
+                    <version>1.6.0</version>
+                    <classifier>win-x86_64</classifier>
+                </dependency>
+        -->
+
+<!--        		<dependency>
+                    <groupId>ai.djl.mxnet</groupId>
+                    <artifactId>mxnet-native-cu101mkl</artifactId>
+                    <version>1.6.0-b</version>
+                    <classifier>win-x86_64</classifier>
+                </dependency>-->
+
+<!--
+		Liux GPU环境
+		<dependency>
+			<groupId>ai.djl.mxnet</groupId>
+			<artifactId>mxnet-native-mkl</artifactId>
+			<classifier>linux-x86_64</classifier>
+			<scope>runtime</scope>
+			<version>1.7.0-backport</version>
+		</dependency>
+
+		Liux CPU环境
+		<dependency>
+			<groupId>ai.djl.mxnet</groupId>
+			<artifactId>mxnet-native-cu102mkl</artifactId>
+			<classifier>linux-x86_64</classifier>
+			<version>1.7.0-backport</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		苹果系统环境
+		<dependency>
+			<groupId>ai.djl.mxnet</groupId>
+			<artifactId>mxnet-native-mkl</artifactId>
+			<classifier>osx-x86_64</classifier>
+			<version>1.7.0-backport</version>
+			<scope>runtime</scope>
+		</dependency>-->
+
+
+		<!-- swagger3-->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>${swagger.version}</version>
+		</dependency>
+
+
+		<!-- SSH -->
+		<dependency>
+			<groupId>ch.ethz.ganymed</groupId>
+			<artifactId>ganymed-ssh2</artifactId>
+			<version>262</version>
+		</dependency>
+
+		<dependency>
+			<groupId>tech.tablesaw</groupId>
+			<artifactId>tablesaw-jsplot</artifactId>
+			<version>0.38.1</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>FastDJL</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+>>>>>>> f9d321340f96ad2c1d3a54e6c6b0b9b4a411cd98
 </project>
