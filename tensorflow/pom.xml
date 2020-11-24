@@ -29,7 +29,7 @@
             <version>1.7.25</version>
             <scope>compile</scope>
         </dependency>
-        <!-- AWS DJL -->
+        <!-- AWS DJL Tensorflow JAR -->
         <dependency>
             <groupId>ai.djl.tensorflow</groupId>
             <artifactId>tensorflow-api</artifactId>
@@ -43,6 +43,10 @@
             <artifactId>tensorflow-model-zoo</artifactId>
         </dependency>
         <dependency>
+            <groupId>ai.djl.tensorflow</groupId>
+            <artifactId>tensorflow-engine</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
             <version>3.8.0</version>
@@ -50,23 +54,17 @@
         <!-- 这个模块用的是tensorflow引擎和device cpu -->
         <dependency>
             <groupId>ai.djl.tensorflow</groupId>
-            <artifactId>tensorflow-engine</artifactId>
-            <version>0.8.0</version>
-            <scope>runtime</scope>
-        </dependency>
-      <dependency>
-            <groupId>ai.djl.tensorflow</groupId>
             <artifactId>tensorflow-native-cpu</artifactId>
             <classifier>win-x86_64</classifier>
             <version>2.3.1</version>
             <scope>runtime</scope>
         </dependency>
-<!--       <dependency>
-            <groupId>ai.djl.tensorflow</groupId>
-            <artifactId>tensorflow-native-auto</artifactId>
-            <version>2.3.1</version>
-            <scope>runtime</scope>
-        </dependency>-->
+        <!--       <dependency>
+                    <groupId>ai.djl.tensorflow</groupId>
+                    <artifactId>tensorflow-native-auto</artifactId>
+                    <version>2.3.1</version>
+                    <scope>runtime</scope>
+                </dependency>-->
     </dependencies>
 
 </project>
