@@ -73,7 +73,6 @@
                 <groupId>ai.djl.mxnet</groupId>
                 <artifactId>mxnet-engine</artifactId>
                 <version>${djl.version}</version>
-                <scope>runtime</scope>
             </dependency>
             <!-- AWS DJL Tensorflow-->
             <dependency>
