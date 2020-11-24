@@ -1,6 +1,7 @@
 # FastDJL
 Fast Deep Java Library
 本项目是一个纯Java编写的的DeepLearning Project,整合了AWS的DJL深度学习框架，提供给大家参考学习。
+
 (目前Mxnet 在Windows 环境下已跑通)
 
 ## 所用技术框架
