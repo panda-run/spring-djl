@@ -55,9 +55,8 @@
         <dependency>
             <groupId>ai.djl.tensorflow</groupId>
             <artifactId>tensorflow-native-cpu</artifactId>
-            <classifier>win-x86_64</classifier>
             <version>2.3.1</version>
-            <scope>runtime</scope>
+            <classifier>win-x86_64</classifier>
         </dependency>
         <!--       <dependency>
                     <groupId>ai.djl.tensorflow</groupId>

@@ -35,7 +35,6 @@
             <version>7.3.0</version>
         </dependency>
         <!-- AWS DJL Pytorch JAR -->
-
         <dependency>
             <groupId>ai.djl.pytorch</groupId>
             <artifactId>pytorch-model-zoo</artifactId>
