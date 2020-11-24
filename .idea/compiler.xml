@@ -6,16 +6,24 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="FastDJL" />
+        <module name="pytorch" />
+        <module name="onnxruntime" />
+        <module name="tensorflow" />
+        <module name="mxnet" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="FastDJL" target="8" />
+      <module name="FastDJL" target="1.8" />
+      <module name="mxnet" target="1.8" />
+      <module name="onnxruntime" target="1.8" />
+      <module name="pytorch" target="1.8" />
+      <module name="tensorflow" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="FastDJL" options="" />
+      <module name="mxnet" options="" />
     </option>
   </component>
 </project>
