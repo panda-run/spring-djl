@@ -27,7 +27,7 @@ public class PneumoniaDetection {
 
     private static final Logger logger = LoggerFactory.getLogger(PneumoniaDetection.class);
 
-    private static final List<String> CLASSES = Arrays.asList("Normal", "Pneumonia");
+    private static final List<String> CLASSES = Arrays.asList("正常", "肺炎");
 
     public static void main(String[] args) throws IOException, TranslateException, ModelException {
         Path imagePath = Paths.get("tensorflow/src/test/resources/test.jpg");
@@ -42,7 +42,9 @@ public class PneumoniaDetection {
                 Criteria.builder()
                         .optApplication(Application.CV.IMAGE_CLASSIFICATION)
                         .setTypes(Image.class, Classifications.class)
-                        .optModelUrls("tensorflow/model/saved_model/")
+                        .optModelUrls("http://47.114.1.215:8083/model/tensorflow/pneumonia_model.zip")
+                        // 这里的model 可以去上面地址进行下载然后存放本地,再通过本地引入 这样速度快一点
+                        // .optModelUrls("tensorflow/model/saved_model/")
                         .optTranslator(translator)
                         .optProgress(new ProgressBar())
                         .build();
