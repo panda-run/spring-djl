@@ -21,7 +21,7 @@ Fast Deep Java Library
 
 * 新增通过获取FashionMnist数据集进行服装图像分类例子，详情见[ImageClassification.java](https://github.com/Jzow/FastDJL/blob/master/mxnet/src/main/java/com/example/ImageClassification.java)
 
-* 新增通过swagger-ui进行图像分类接口，详情见mxnet/src/main/java/com/fastdjl/controller/ClassificationController.java
+* 新增通过swagger-ui进行图像分类接口，详情见[ClassificationController.java](https://github.com/Jzow/FastDJL/blob/master/mxnet/src/main/java/com/controller/ClassificationController.java)
 
 * 实现softmax和totensor运行例子，详情见mxnet/src/main/java/com/fastdjl/common/exampleTest/目录下ImplTotenserAndSoftmaxClassifications.java
 
