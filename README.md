@@ -19,7 +19,7 @@ Fast Deep Java Library
 
 * 新增线性回归例子和通过DJL工具实现的简洁线性回归例子，详情见[ConciseLinearRegression.java](https://github.com/Jzow/FastDJL/blob/master/mxnet/src/main/java/com/example/ConciseLinearRegression.java)
 
-* 新增通过获取FashionMnist数据集进行服装图像分类例子，详情见mxnet/src/main/java/com/fastdjl/common/exampleTest/目录下ImageClassification.java
+* 新增通过获取FashionMnist数据集进行服装图像分类例子，详情见[ImageClassification.java](https://github.com/Jzow/FastDJL/blob/master/mxnet/src/main/java/com/example/ImageClassification.java)
 
 * 新增通过swagger-ui进行图像分类接口，详情见mxnet/src/main/java/com/fastdjl/controller/ClassificationController.java
 
