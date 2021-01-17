@@ -23,8 +23,7 @@ Fast Deep Java Library
 
 * 新增通过swagger-ui进行图像分类接口，详情见[ClassificationController.java](https://github.com/Jzow/FastDJL/blob/master/mxnet/src/main/java/com/controller/ClassificationController.java)
 
-* 实现softmax和totensor运行例子，详情见mxnet/src/main/java/com/fastdjl/common/exampleTest/目录下ImplTotenserAndSoftmaxClassifications.java
-
+* 实现softmax和totensor运行例子，详情见[ImplTotenserAndSoftmaxClassifications.java](https://github.com/Jzow/FastDJL/blob/master/mxnet/src/main/java/com/example/ImplTotenserAndSoftmaxClassifications.java)
 
 ## 关于作者
 * [James Zow](https://github.com/Jzow)
