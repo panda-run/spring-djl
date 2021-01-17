@@ -1,4 +1,4 @@
-package com.common.example;
+package com.example;
 
 import ai.djl.Model;
 import ai.djl.basicdataset.FashionMnist;

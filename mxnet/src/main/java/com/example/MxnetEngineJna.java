@@ -1,4 +1,4 @@
-package com.common.example;
+package com.example;
 
 import ai.djl.engine.Engine;
 import ai.djl.mxnet.engine.MxEngine;
