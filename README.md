@@ -17,13 +17,13 @@ Fast Deep Java Library
 ## 新增内容 
 * `swagger-ui` 在线接口文档
 
-* 新增线性回归例子和通过DJL工具实现的简洁线性回归例子，详情见mxnet/src/main/java/com/fastdjl/common/staticvoidmainTest/目录下ConciseLinearRegression.java
+* 新增线性回归例子和通过DJL工具实现的简洁线性回归例子，详情见mxnet/src/main/java/com/fastdjl/common/exampleTest/目录下ConciseLinearRegression.java
 
-* 新增通过获取FashionMnist数据集进行服装图像分类例子，详情见mxnet/src/main/java/com/fastdjl/common/staticvoidmainTest/目录下ImageClassification.java
+* 新增通过获取FashionMnist数据集进行服装图像分类例子，详情见mxnet/src/main/java/com/fastdjl/common/exampleTest/目录下ImageClassification.java
 
 * 新增通过swagger-ui进行图像分类接口，详情见mxnet/src/main/java/com/fastdjl/controller/ClassificationController.java
 
-* 实现softmax和totensor运行例子，详情见mxnet/src/main/java/com/fastdjl/common/staticvoidmainTest/目录下ImplTotenserAndSoftmaxClassifications.java
+* 实现softmax和totensor运行例子，详情见mxnet/src/main/java/com/fastdjl/common/exampleTest/目录下ImplTotenserAndSoftmaxClassifications.java
 
 
 ## 关于作者

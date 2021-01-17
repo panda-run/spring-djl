@@ -9,7 +9,7 @@ import springfox.documentation.oas.annotations.EnableOpenApi;
 
 @EnableOpenApi
 @SpringBootApplication
-@ComponentScan(basePackages = "com.fastdjl")
+@ComponentScan(basePackages = "com.*")
 public class Application {
 	public static void main(String[] args) {
 		new SpringApplicationBuilder(Application.class)
