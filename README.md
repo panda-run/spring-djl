@@ -1,4 +1,4 @@
-# FastDJL
+# fastdjl
 Fast Deep Java Library
 本项目是一个纯Java编写的的DeepLearning Project,整合了AWS的DJL深度学习框架，与DJL不同的是本项目采用Maven依赖，提供给大家参考学习。
 
