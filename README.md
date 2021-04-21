@@ -4,8 +4,6 @@ Fast Deep Java Library
 
 (目前Mxnet tensorflow在Windows10 环境下已跑通)
 
-公开模型库下载地址：(http://47.114.1.215:8083/model/)
-
 ## 所用技术框架
 
 * `AWS DJL` 亚马逊开源深度学习框架
