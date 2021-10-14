@@ -36,16 +36,27 @@
         </dependency>
         <!-- AWS DJL Pytorch JAR -->
         <dependency>
+            <groupId>ai.djl</groupId>
+            <artifactId>api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ai.djl</groupId>
+            <artifactId>basicdataset</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ai.djl</groupId>
+            <artifactId>model-zoo</artifactId>
+        </dependency>
+        <dependency>
             <groupId>ai.djl.pytorch</groupId>
             <artifactId>pytorch-model-zoo</artifactId>
         </dependency>
 
         <dependency>
             <groupId>ai.djl.pytorch</groupId>
-            <artifactId>pytorch-native-cpu</artifactId>
-            <classifier>win-x86_64</classifier>
+            <artifactId>pytorch-engine</artifactId>
+            <version>0.12.0</version>
             <scope>runtime</scope>
-            <version>1.6.0</version>
         </dependency>
     </dependencies>
 
