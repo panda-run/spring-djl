@@ -12,7 +12,7 @@ Fast Deep Java Library
 
 ## 上手指南
 * clone到本地通过maven引入该项目<br>
-* 在Mxnet下,运行Application启动类,页面访问http://localhost:7798/swagger-ui/index.html <br>
+* 在Mxnet下,运行Application启动类,页面访问http://localhost:7798/swagger-ui/index.html ,如若修改端口请在resource目录下修改端口<br>
 
 ## 新增内容 
 * `swagger-ui` 在线接口文档
