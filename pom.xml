@@ -15,12 +15,12 @@
         <module>onnxruntime</module>
     </modules>
     <properties>
-        <java.version>8</java.version>
+        <java.version>17</java.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <swagger.version>3.0.0</swagger.version>
-        <spring.version>2.2.2.RELEASE</spring.version>
-        <djl.version>0.8.0</djl.version>
+        <spring.version>2.5.5</spring.version>
+        <djl.version>0.13.0</djl.version>
     </properties>
     <dependencyManagement>
         <dependencies>

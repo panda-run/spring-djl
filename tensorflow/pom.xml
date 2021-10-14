@@ -54,8 +54,9 @@
         <!-- 这个模块用的是tensorflow引擎和device cpu -->
         <dependency>
             <groupId>ai.djl.tensorflow</groupId>
-            <artifactId>tensorflow-native-cpu</artifactId>
-            <version>2.3.0</version>
+            <artifactId>tensorflow-native-auto</artifactId>
+            <version>2.4.1</version>
+            <scope>runtime</scope>
         </dependency>
         <!--       <dependency>
                     <groupId>ai.djl.tensorflow</groupId>

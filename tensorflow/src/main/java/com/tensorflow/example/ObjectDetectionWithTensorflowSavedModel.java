@@ -167,12 +167,12 @@ public class ObjectDetectionWithTensorflowSavedModel {
             return new NDList(array);
         }
 
-        @Override
+/*        @Override
         public void prepare(NDManager manager, Model model) throws IOException {
             if (classes == null) {
                 classes = loadSynset();
             }
-        }
+        }*/
 
         @Override
         public DetectedObjects processOutput(TranslatorContext ctx, NDList list) {
