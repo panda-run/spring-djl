@@ -75,13 +75,13 @@ public class LinearRegressionInference {
         float lr = learning;
         // 迭代次数（循环）
         // 均值为0且标准偏差为的正态分布中采样随机数来初始化权重  0.01
-        NDArray w = manager.randomNormal(0, 0.01f, new Shape(2, 1), DataType.FLOAT32, Device.defaultDevice());
+        NDArray w = manager.randomNormal(0, 0.01f, new Shape(2, 1), DataType.FLOAT32, Device.cpu());
         // 偏差b为0
         NDArray b = manager.zeros(new Shape(1));
         NDList params = new NDList(w, b);
         // 梯度
         for (NDArray param : params) {
-            param.attachGradient();
+           // param.attachGradient();
         }
         try {
             for (int epoch = 0; epoch < numEpochs; epoch++) {
@@ -124,7 +124,7 @@ public class LinearRegressionInference {
     public static LinearRegressionInference autoData(NDManager manager, NDArray w, float b, int numExamples, int numInputs) {
         NDArray X = manager.randomNormal(new Shape(numExamples, numInputs));
         NDArray y = X.dot(w).add(b);
-        y = y.add(manager.randomNormal(0, 0.01f, y.getShape(), DataType.FLOAT32, Device.defaultDevice()));
+        y = y.add(manager.randomNormal(0, 0.01f, y.getShape(), DataType.FLOAT32, Device.cpu()));
         return new LinearRegressionInference(X, y);
     }
 

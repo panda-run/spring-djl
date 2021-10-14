@@ -13,7 +13,7 @@
  */
 package com.example;
 
-import ai.djl.basicdataset.FashionMnist;
+import ai.djl.basicdataset.cv.classification.FashionMnist;
 import ai.djl.ndarray.NDArray;
 import ai.djl.ndarray.NDManager;
 import ai.djl.training.dataset.ArrayDataset;

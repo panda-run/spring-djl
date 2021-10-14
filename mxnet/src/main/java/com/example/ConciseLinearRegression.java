@@ -79,7 +79,7 @@ public class ConciseLinearRegression {
     public static LinearRegression autoData(NDManager manager, NDArray w, float b, int numExamples) {
         NDArray X = manager.randomNormal(new Shape(numExamples, w.size()));
         NDArray y = X.dot(w).add(b);
-        y = y.add(manager.randomNormal(0, 0.01f, y.getShape(), DataType.FLOAT32, Device.defaultDevice()));
+        y = y.add(manager.randomNormal(0, 0.01f, y.getShape(), DataType.FLOAT32, Device.cpu()));
         return new LinearRegression(X, y);
     }
 

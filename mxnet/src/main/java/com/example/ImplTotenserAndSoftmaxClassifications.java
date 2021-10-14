@@ -106,11 +106,6 @@ public class ImplTotenserAndSoftmaxClassifications implements Runnable {
                 return new NDList(array);
             }
 
-            @Override
-            public void prepare(NDManager manager, Model model) throws IOException {
-                // 获取模型里面的classname
-                classes =  model.getArtifact("synset.txt", Utils::readLines);;
-            }
         };
 
         Criteria<Image, Classifications> criteria =

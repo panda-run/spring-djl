@@ -14,7 +14,7 @@
 package com.example;
 
 import ai.djl.Model;
-import ai.djl.basicdataset.FashionMnist;
+import ai.djl.basicdataset.cv.classification.FashionMnist;
 import ai.djl.metric.Metrics;
 import ai.djl.ndarray.*;
 import ai.djl.ndarray.types.*;

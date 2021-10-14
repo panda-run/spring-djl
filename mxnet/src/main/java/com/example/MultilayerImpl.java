@@ -14,7 +14,7 @@
 package com.example;
 
 import ai.djl.Model;
-import ai.djl.basicdataset.FashionMnist;
+import ai.djl.basicdataset.cv.classification.FashionMnist;
 import ai.djl.metric.Metrics;
 import ai.djl.ndarray.types.Shape;
 import ai.djl.nn.Activation;
@@ -61,7 +61,6 @@ public class MultilayerImpl {
         net.add(Linear.builder().setUnits(256).build());
         net.add(Activation::relu);
         net.add(Linear.builder().setUnits(10).build());
-        net.setInitializer(new NormalInitializer());
 
         int batchSize = 256;
         int numEpochs = 10;
