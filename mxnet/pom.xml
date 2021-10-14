@@ -90,9 +90,8 @@
         <!-- 这个模块用的是mxnet引擎和device cpu -->
         <dependency>
             <groupId>ai.djl.mxnet</groupId>
-            <artifactId>mxnet-native-mkl</artifactId>
-            <version>1.6.0-b</version>
-            <classifier>win-x86_64</classifier>
+            <artifactId>mxnet-native-auto</artifactId>
+            <version>1.8.0</version>
             <scope>runtime</scope>
         </dependency>
     </dependencies>
