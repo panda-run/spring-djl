@@ -55,7 +55,7 @@ public class PneumoniaDetection {
                 Criteria.builder()
                         .optApplication(Application.CV.IMAGE_CLASSIFICATION)
                         .setTypes(Image.class, Classifications.class)
-                        .optModelUrls("http://47.114.1.215:8083/model/tensorflow/pneumonia_model.zip")
+                        .optModelUrls("https://djl-ai.s3.amazonaws.com/resources/demo/pneumonia-detection-model/saved_model.zip")
                         // 这里的model 可以去上面地址进行下载然后存放本地,再通过本地引入 这样速度快一点
                         // .optModelUrls("tensorflow/model/saved_model/")
                         .optTranslator(translator)
