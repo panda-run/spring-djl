@@ -1,6 +1,6 @@
 # Spring DJL
 Spring Deep Java Library
-本项目是一个纯Java编写的的DeepLearning Project,整合了AWS的DJL深度学习框架，与DJL不同的是本项目采用Maven依赖且整合了Spring相关框架进行
+本项目是一个纯Java编写的的DeepLearning Project,整合了AWS的DJL深度学习框架，与DJL不同的是本项目采用Maven依赖且整合了Spring相关框架
 
 (目前Mxnet tensorflow在Windows10 环境下已跑通，Mac os测试通过)
 
