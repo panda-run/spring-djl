@@ -11,13 +11,13 @@
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  */
-package com.service;
+package org.pandarun.service;
 
 /**
  * ClassName: Classification
  * Description: 分类接口
  * Author: James Zow
- * Date: 2020/11/6 9:06
+ * Date: 2021/10/24
  * Version:
  **/
 public interface Classification {
@@ -27,6 +27,6 @@ public interface Classification {
      * @param imagePath 图片地址
      * @return
      */
-    public String ImageClassification(String imagePath);
+     String ImageClassification(String imagePath);
 
 }
