@@ -13,6 +13,7 @@
         <module>mxnet</module>
         <module>pytorch</module>
         <module>onnxruntime</module>
+        <module>paddlepaddle</module>
     </modules>
     <properties>
         <java.version>17</java.version>
@@ -95,6 +96,12 @@
             <dependency>
                 <groupId>ai.djl.pytorch</groupId>
                 <artifactId>pytorch-model-zoo</artifactId>
+                <version>${djl.version}</version>
+            </dependency>
+            <!-- Baidu PaddlePaddle -->
+            <dependency>
+                <groupId>ai.djl.paddlepaddle</groupId>
+                <artifactId>paddlepaddle-engine</artifactId>
                 <version>${djl.version}</version>
             </dependency>
         </dependencies>
