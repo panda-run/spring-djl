@@ -88,15 +88,4 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <finalName>spring-djl-mxnet</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.2.2.RELEASE</version>
-            </plugin>
-        </plugins>
-    </build>
-
 </project>
