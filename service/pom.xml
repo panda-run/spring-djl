@@ -8,12 +8,45 @@
         <version>0.1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>service</artifactId>
+    <version>0.1.0</version>
+    <packaging>jar</packaging>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.pandarun</groupId>
+            <artifactId>tensorflow</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.pandarun</groupId>
+            <artifactId>mxnet</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.pandarun</groupId>
+            <artifactId>pytorch</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.pandarun</groupId>
+            <artifactId>onnxruntime</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.pandarun</groupId>
+            <artifactId>paddlepaddle</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+    </dependencies>
 
 </project>

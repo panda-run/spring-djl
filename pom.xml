@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.6</version>
+        <relativePath/>
+    </parent>
     <artifactId>spring-djl</artifactId>
     <groupId>org.pandarun</groupId>
     <version>0.1.0</version>
     <packaging>pom</packaging>
     <name>spring-djl</name>
-    <modelVersion>4.0.0</modelVersion>
     <description>spring-djl pom</description>
     <modules>
         <module>tensorflow</module>
@@ -24,13 +30,21 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <swagger.version>3.0.0</swagger.version>
-        <spring.version>2.5.5</spring.version>
+        <spring.version>2.5.6</spring.version>
         <djl.version>0.13.0</djl.version>
         <knife4j.version>3.0.3</knife4j.version>
+        <knife4j.version>3.0.3</knife4j.version>
+        <commonslang.version>2.6</commonslang.version>
+        <slf4j.version>1.7.25</slf4j.version>
     </properties>
     <dependencyManagement>
         <dependencies>
             <!-- Spring -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
@@ -38,21 +52,25 @@
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-tomcat</artifactId>
-                <version>${spring.version}</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
                 <version>${spring.version}</version>
-                <scope>test</scope>
             </dependency>
-            <!-- swagger3-->
+            <!-- knife4j-->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-spring-boot-starter</artifactId>
                 <version>${knife4j.version}</version>
+            </dependency>
+            <!-- slf4j logger -->
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commonslang.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>${slf4j.version}</version>
             </dependency>
             <!-- AWS DJL Mxnet-->
             <dependency>
@@ -101,6 +119,12 @@
             <dependency>
                 <groupId>ai.djl.pytorch</groupId>
                 <artifactId>pytorch-model-zoo</artifactId>
+                <version>${djl.version}</version>
+            </dependency>
+            <!-- AWS DJL onnxruntime-->
+            <dependency>
+                <groupId>ai.djl.onnxruntime</groupId>
+                <artifactId>onnxruntime-engine</artifactId>
                 <version>${djl.version}</version>
             </dependency>
             <!-- Baidu PaddlePaddle -->

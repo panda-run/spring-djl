@@ -11,12 +11,13 @@
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  */
-package com.serviceImpl;
+package org.pandarun.service.impl;
 
 import ai.djl.ModelException;
 import ai.djl.translate.TranslateException;
 import com.common.inference.ClassificationInference;
-import com.service.Classification;
+
+import org.pandarun.service.Classification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

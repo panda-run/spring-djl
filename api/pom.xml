@@ -16,4 +16,17 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.pandarun</groupId>
+            <artifactId>service</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+    </dependencies>
+
 </project>
