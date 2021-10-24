@@ -14,6 +14,7 @@
         <module>pytorch</module>
         <module>onnxruntime</module>
         <module>paddlepaddle</module>
+        <module>application</module>
     </modules>
     <properties>
         <java.version>17</java.version>
@@ -22,6 +23,7 @@
         <swagger.version>3.0.0</swagger.version>
         <spring.version>2.5.5</spring.version>
         <djl.version>0.13.0</djl.version>
+        <knife4j.version>3.0.3</knife4j.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -45,9 +47,9 @@
             </dependency>
             <!-- swagger3-->
             <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-boot-starter</artifactId>
-                <version>${swagger.version}</version>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
             </dependency>
             <!-- AWS DJL Mxnet-->
             <dependency>
