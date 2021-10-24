@@ -1,6 +1,6 @@
 # Spring DJL
 Spring Deep Java Library
-本项目是一个纯Java编写的的DeepLearning Project,整合了AWS的DJL深度学习框架和Spring相关框架
+本项目是一个纯Java编写的的DeepLearning Project，整合了AWS的DJL深度学习框架和Spring相关框架。
 
 ## 开发环境
 JDK8+（此Project 所用jdk17）
