@@ -14,5 +14,5 @@ JDK8+（此Project 所用jdk17），emmmmm考虑到使用jdk11
 * `swagger-ui` 在线接口文档
 
 ## 上手指南
-* 正在编写开发中...
+* application 模块里的spring boot 启动访问端口 调用localhost:8081/classification/v1/simple?imagePath=（图片地址）
 
