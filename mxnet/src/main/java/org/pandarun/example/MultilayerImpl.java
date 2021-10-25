@@ -11,7 +11,7 @@
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  */
-package com.example;
+package org.pandarun.example;
 
 import ai.djl.Model;
 import ai.djl.basicdataset.cv.classification.FashionMnist;
@@ -26,7 +26,6 @@ import ai.djl.training.EasyTrain;
 import ai.djl.training.Trainer;
 import ai.djl.training.dataset.Dataset;
 import ai.djl.training.evaluator.Accuracy;
-import ai.djl.training.initializer.NormalInitializer;
 import ai.djl.training.listener.TrainingListener;
 import ai.djl.training.loss.Loss;
 import ai.djl.training.optimizer.Optimizer;

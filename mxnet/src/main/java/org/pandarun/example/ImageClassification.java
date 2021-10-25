@@ -11,7 +11,7 @@
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  */
-package com.example;
+package org.pandarun.example;
 
 import ai.djl.basicdataset.cv.classification.FashionMnist;
 import ai.djl.ndarray.NDArray;
@@ -19,8 +19,8 @@ import ai.djl.ndarray.NDManager;
 import ai.djl.training.dataset.ArrayDataset;
 import ai.djl.training.dataset.Dataset;
 import ai.djl.translate.TranslateException;
-import com.javase.Container;
-import com.javase.ImagePanel;
+import org.pandarun.javase.Container;
+import org.pandarun.javase.ImagePanel;
 
 import javax.swing.*;
 import java.awt.*;
