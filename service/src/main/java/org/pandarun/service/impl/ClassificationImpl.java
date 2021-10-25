@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Apache All Rights Reserved.
+ * Copyright 2021 Panda Run Organization All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@ package org.pandarun.service.impl;
 
 import ai.djl.ModelException;
 import ai.djl.translate.TranslateException;
-import com.common.inference.ClassificationInference;
+import org.pandarun.inference.ClassificationInference;
 
 import org.pandarun.service.Classification;
 import org.slf4j.Logger;
