@@ -36,10 +36,17 @@
         <spring.version>2.5.6</spring.version>
         <djl.version>0.13.0</djl.version>
         <knife4j.version>3.0.3</knife4j.version>
-        <knife4j.version>3.0.3</knife4j.version>
         <commonslang.version>2.6</commonslang.version>
         <slf4j.version>1.7.25</slf4j.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>${knife4j.version}</version>
+        </dependency>
+    </dependencies>
 
     <dependencyManagement>
         <dependencies>
