@@ -43,7 +43,7 @@ public class PneumoniaDetection {
     private static final List<String> CLASSES = Arrays.asList("正常", "肺炎");
 
     public static void main(String[] args) throws IOException, TranslateException, ModelException {
-        Path imagePath = Paths.get("tensorflow/src/test/resources/test.jpg");
+        Path imagePath = Paths.get("tensorflow/src/test/resources/test2.jpg");
         Image image = ImageFactory.getInstance().fromFile(imagePath);
 
         Translator<Image, Classifications> translator =

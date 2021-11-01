@@ -15,43 +15,42 @@ package org.pandarun.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.pandarun.service.Classification;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.pandarun.service.ComputerVisionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * ClassName: ClassificationController
- * Description: 分类控制层
- * Author: James Zow
- * Date: 2021/10/24
- * Version:
+ * Description: 分类接口实现类 <br>
+ * Date: 2020/11/1
  **/
 @RestController
-@Api(tags = "图像识别分类(AI CV)")
-@RequestMapping("/classification")
-public class ClassificationController {
+@Slf4j
+@RequiredArgsConstructor
+@Api(tags = "计算机视觉（CV）接口")
+@RequestMapping("cv")
+public class ComputerVisionController {
 
-    public Logger log = LoggerFactory.getLogger(ClassificationController.class);
+    private final ComputerVisionService computerVisionService;
 
-    @Autowired
-    private Classification classification;
-
-    @PostMapping(value = "/v1/simple")
-    @ApiOperation(value = "mxnet引擎图像识别接口")
+    @PostMapping(value = "mxnetResnet18")
+    @ApiOperation(value = "[mxnet引擎]-图像识别接口")
     public String animalClassification(String imagePath) {
         log.info("请求分类接口Start...");
         log.info("请求图片地址:" + imagePath);
-        String result = classification.ImageClassification(imagePath);
-        if(result != null){
-            return result;
-        } else {
-            return "请求接口没有数据";
-        }
+        return computerVisionService.imageRecognition(imagePath);
+    }
+
+    @PostMapping(value = "pneumoniaDetection")
+    @ApiOperation(value = "[tensorflow引擎]-肺炎检测接口")
+    public String pneumoniaDetection(String imagePath) {
+        log.info("请求肺炎检测接口Start...");
+        log.info("请求图片地址:" + imagePath);
+        return computerVisionService.pneumoniaDetection(imagePath);
     }
 }
