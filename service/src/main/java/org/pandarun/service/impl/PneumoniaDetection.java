@@ -13,7 +13,6 @@
  */
 package org.pandarun.service.impl;
 
-import org.pandarun.service.PneumoniaDetectionService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -23,5 +22,5 @@ import org.springframework.stereotype.Service;
  * @date 2021/11/1 13:46
  */
 @Service
-public class PneumoniaDetectionServiceImpl implements PneumoniaDetectionService {
+public class PneumoniaDetection {
 }
