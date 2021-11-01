@@ -10,3 +10,5 @@ JDK8+（此Project 所用jdk11）
 ## 接口文档
 http://localhost:8081/doc.htm
 
+肺炎检测模型需要注意替换模型地址，具体在代码注释里。
+
