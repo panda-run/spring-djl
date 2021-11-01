@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "spring-djl"
+name = "core"
 version = "0.1.0"
