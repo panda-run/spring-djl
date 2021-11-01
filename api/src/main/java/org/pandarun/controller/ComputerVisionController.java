@@ -15,11 +15,14 @@ package org.pandarun.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.pandarun.service.Classification;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.pandarun.service.ComputerVisionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -27,23 +30,27 @@ import org.springframework.web.bind.annotation.RestController;
  * Date: 2020/11/1
  **/
 @RestController
+@Slf4j
+@RequiredArgsConstructor
 @Api(tags = "计算机视觉（CV）接口")
+@RequestMapping("cv")
 public class ComputerVisionController {
 
-    public Logger log = LoggerFactory.getLogger(ComputerVisionController.class);
-
-    @Autowired
-    private Classification classification;
+    private final ComputerVisionService computerVisionService;
 
     @PostMapping(value = "mxnetResnet18")
     @ApiOperation(value = "[mxnet引擎]-图像识别接口")
     public String animalClassification(String imagePath) {
         log.info("请求分类接口Start...");
         log.info("请求图片地址:" + imagePath);
-        String result = classification.ImageClassification(imagePath);
-        if(result == null){
-            return "请求接口没有数据";
-        }
-        return result;
+        return computerVisionService.imageRecognition(imagePath);
+    }
+
+    @PostMapping(value = "pneumoniaDetection")
+    @ApiOperation(value = "[tensorflow引擎]-肺炎检测接口")
+    public String pneumoniaDetection(String imagePath) {
+        log.info("请求肺炎检测接口Start...");
+        log.info("请求图片地址:" + imagePath);
+        return computerVisionService.pneumoniaDetection(imagePath);
     }
 }
