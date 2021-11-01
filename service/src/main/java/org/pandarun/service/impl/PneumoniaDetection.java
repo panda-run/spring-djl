@@ -19,15 +19,12 @@ import ai.djl.inference.Predictor;
 import ai.djl.modality.Classifications;
 import ai.djl.modality.cv.Image;
 import ai.djl.modality.cv.ImageFactory;
-import ai.djl.modality.cv.transform.Resize;
-import ai.djl.modality.cv.transform.ToTensor;
 import ai.djl.modality.cv.translator.ImageClassificationTranslator;
 import ai.djl.modality.cv.util.NDImageUtils;
 import ai.djl.repository.zoo.Criteria;
 import ai.djl.repository.zoo.ModelZoo;
 import ai.djl.repository.zoo.ZooModel;
 import ai.djl.training.util.ProgressBar;
-import ai.djl.translate.Pipeline;
 import ai.djl.translate.TranslateException;
 import ai.djl.translate.Translator;
 import org.springframework.stereotype.Service;
@@ -39,11 +36,9 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @author James Zow
- * @version 1.0
- * @description: TODO
- * @date 2021/11/1 13:46
- */
+ * Description: NLP 接口实现层 <br>
+ * Date: 2021/11/1
+ **/
 @Service
 public class PneumoniaDetection {
 
