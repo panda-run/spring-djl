@@ -5,7 +5,7 @@ Spring Deep Java Library
 目前开发中，第二次改版......
 
 ## 开发环境
-JDK8+（此Project 所用jdk11）
+JDK8+
 
 ## 接口文档
 http://localhost:8081/doc.htm
